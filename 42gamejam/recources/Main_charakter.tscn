@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://qmf4lijkhewv"]
+
+[ext_resource type="Script" path="res://scripts/main_charakter.gd" id="1_kiafn"]
+[ext_resource type="Texture2D" uid="uid://bgeqoeenytb3q" path="res://icon.svg" id="1_nkt1q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b77jk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nkt1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main_Charakter" type="CharacterBody2D"]
+script = ExtResource("1_kiafn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b77jk")
