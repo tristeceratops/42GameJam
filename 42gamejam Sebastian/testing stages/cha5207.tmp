@@ -31,21 +31,3 @@ position = Vector2(980, -1)
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(1969, 6)
-
-[node name="StaticBody2D5" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(2980, 15)
-
-[node name="StaticBody2D6" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(4003, 33)
-
-[node name="StaticBody2D7" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(5038, 65)
-
-[node name="StaticBody2D8" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(6066, 116)
-
-[node name="StaticBody2D9" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(7082, 167)
-
-[node name="StaticBody2D10" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(7971, 217)
