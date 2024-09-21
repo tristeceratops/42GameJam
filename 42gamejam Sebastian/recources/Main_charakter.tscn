@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://qmf4lijkhewv"]
+[gd_scene load_steps=6 format=3 uid="uid://qmf4lijkhewv"]
 
 [ext_resource type="Script" path="res://scripts/main_charakter.gd" id="1_kiafn"]
 [ext_resource type="Texture2D" uid="uid://bgeqoeenytb3q" path="res://icon.svg" id="1_nkt1q"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3rw7"]
-size = Vector2(120, 118)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b77jk"]
 animations = [{
@@ -17,14 +14,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3rw7"]
+size = Vector2(120, 118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68lxq"]
+size = Vector2(123, 58)
+
 [node name="Main_Charakter" type="CharacterBody2D"]
 script = ExtResource("1_kiafn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_b77jk")
+
+[node name="normal hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_t3rw7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_b77jk")
+[node name="sliding hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 32)
+shape = SubResource("RectangleShape2D_68lxq")
 
 [node name="Camera2D" type="Camera2D" parent="."]

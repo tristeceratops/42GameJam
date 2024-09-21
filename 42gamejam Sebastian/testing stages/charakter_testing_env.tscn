@@ -18,7 +18,16 @@ position = Vector2(-20, -5)
 position = Vector2(-1175, -66)
 
 [node name="platforn right-left" parent="." instance=ExtResource("4_akwvy")]
-position = Vector2(592, -1)
+position = Vector2(-176, 468)
 
 [node name="platforn right-left2" parent="." instance=ExtResource("4_akwvy")]
 position = Vector2(-965, 437)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_p5px5")]
+position = Vector2(-1019, -5)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_p5px5")]
+position = Vector2(980, -1)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("2_p5px5")]
+position = Vector2(1969, 6)
