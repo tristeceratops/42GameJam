@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://nudn265vj0sy"]
+
+[ext_resource type="PackedScene" uid="uid://qmf4lijkhewv" path="res://recources/Main_charakter.tscn" id="1_oq085"]
+[ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://recources/building block.tscn" id="2_p5px5"]
+[ext_resource type="PackedScene" uid="uid://bpbrk3eydk4c8" path="res://recources/platform_up-down.tscn" id="3_67rp5"]
+[ext_resource type="PackedScene" uid="uid://btymfyif16gfr" path="res://recources/platforn_right_left.tscn" id="4_akwvy"]
+
+[node name="charakter testing env" type="Node2D"]
+position = Vector2(-27, 120)
+
+[node name="Main_Charakter" parent="." instance=ExtResource("1_oq085")]
+position = Vector2(-9, -265)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_p5px5")]
+position = Vector2(-20, -5)
+
+[node name="platform up-down" parent="." instance=ExtResource("3_67rp5")]
+position = Vector2(-1175, -66)
+
+[node name="platforn right-left" parent="." instance=ExtResource("4_akwvy")]
+position = Vector2(592, -1)
+
+[node name="platforn right-left2" parent="." instance=ExtResource("4_akwvy")]
+position = Vector2(-965, 437)
