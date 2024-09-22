@@ -13,6 +13,8 @@ var last_dir = 0
 var WJ_pushback = 420
 var wall_slide_fr = 100
 var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
+var running = false
+var crouching = false
 
 
 
@@ -71,17 +73,19 @@ func returning_the_points(delta):
 			slide_time += delta
 
 func crouch_n_slide(delta):
-	if Input.is_action_pressed("down") and Input.is_action_pressed("run") and abs(velocity.x) >= 250 and slide_time > 0 and not velocity.x == 0:
+	if Input.is_action_pressed("down") and Input.is_action_pressed("run") and crouching == false and abs(velocity.x) >= 400 and slide_time > 0 and not velocity.x == 0:
 		#velocity.y += 420
-		velocity.x -= 0.1 * MAX_SPEED * -last_dir
+		velocity.x -= 0.001 * MAX_SPEED * -last_dir
 		slide_time -= delta
 		$"normal hitbox".disabled = true
 	elif Input.is_action_pressed("down"):
 		velocity.y += 420
 		velocity.x /= 2
+		crouching = true
 		$"normal hitbox".disabled = true
 	else:
 		$"normal hitbox".disabled = false
+		crouching = false
 	
 
 func run()-> void:
