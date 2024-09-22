@@ -50,3 +50,7 @@ position = Vector2(7971, 217)
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(-576, -465)
 rotation = 1.5708
+
+[node name="StaticBody2D2" parent="StaticBody2D2" instance=ExtResource("2_p5px5")]
+position = Vector2(-312, -387)
+rotation = 3.14159

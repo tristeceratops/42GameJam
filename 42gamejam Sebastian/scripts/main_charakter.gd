@@ -11,7 +11,7 @@ var slide_time = max_slide_time
 var last_dir = 0
 var WJ_pushback = 210
 var wall_slide_fr = 100
-var is_wall_sliding = false
+var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
 
 
 func _physics_process(delta: float) -> void:
@@ -31,16 +31,27 @@ func _physics_process(delta: float) -> void:
 
 func jump() -> void:
 	if Input.is_action_just_pressed("ui_accept"):
+			# Ground jump
 		if is_on_floor():
 			velocity.y += JUMP_VELOCITY
-		if not is_on_floor() and doubble_jump >= 1 and not is_on_wall():
+			doubble_jump = 1 # Reset double jump when landing on the ground
+			last_wall_dir = 0 # Reset wall jump tracking when on the ground
+
+				# Double jump (in air, not on wall)
+		elif not is_on_floor() and doubble_jump >= 1 and not is_on_wall():
 			velocity.y = 0
-			velocity.y += JUMP_VELOCITY/1.5
+			velocity.y += JUMP_VELOCITY / 1.5
 			doubble_jump -= 1
-		if is_on_wall() and not is_on_floor():
-			velocity.y += JUMP_VELOCITY
-			velocity.x = WJ_pushback * -last_dir
-			dir = -dir
+
+				# Wall jump (ensure it's a different wall than last jump)
+		elif is_on_wall() and not is_on_floor() and last_dir != last_wall_dir:
+			velocity.y = 0 # Reset Y velocity
+			velocity.y += JUMP_VELOCITY # Apply wall jump velocity
+			velocity.x = WJ_pushback * -last_dir # Push away from the wall
+
+			last_wall_dir = last_dir # Track the direction of the wall jump
+			dir = -dir # Flip direction
+
 
 func wall_slide(delta):
 	if is_on_wall() and not is_on_floor() and dir != 0:
@@ -98,8 +109,8 @@ func walking(delta) -> void:
 		# Stop small movements (to avoid sliding)
 	if abs(velocity.x) < 0.1:
 		velocity.x = 0
-#TODO: a slide and crouch function.
-
+func animation():
+	pass
 
 	
 func gravity(delta) -> void:
