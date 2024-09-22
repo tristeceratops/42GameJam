@@ -18,7 +18,7 @@ animations = [{
 size = Vector2(120, 118)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68lxq"]
-size = Vector2(123, 58)
+size = Vector2(120, 60)
 
 [node name="Main_Charakter" type="CharacterBody2D"]
 script = ExtResource("1_kiafn")
@@ -31,7 +31,7 @@ position = Vector2(2, 4)
 shape = SubResource("RectangleShape2D_t3rw7")
 
 [node name="sliding hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 32)
+position = Vector2(2, 33)
 shape = SubResource("RectangleShape2D_68lxq")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -19,12 +19,11 @@ func _physics_process(delta: float) -> void:
 	if dir != 0:
 		last_dir = dir
 	jump()
-	run()
 	dash()
+	run()
 	walking(delta)
 	wall_slide(delta)
 	crouch_n_slide(delta)
-	print(velocity.y)
 	
 	returning_the_points(delta)
 	gravity(delta)
@@ -74,7 +73,6 @@ func crouch_n_slide(delta):
 		velocity.x = 1.5 * MAX_SPEED * last_dir
 		slide_time -= delta
 		$"normal hitbox".visible = false
-		print(slide_time)
 	elif Input.is_action_pressed("down"):
 		velocity.y += 420
 		velocity.x /= 1.5
@@ -93,6 +91,7 @@ func dash() -> void:
 	if Input.is_action_just_pressed("dash") and not is_on_floor() and dash_count > 0:
 		position.x += 500 * dir
 		dash_count -= 1
+	print(dash_count)
 		
 func walking(delta) -> void:
 	# Accelerate when moving left or right
