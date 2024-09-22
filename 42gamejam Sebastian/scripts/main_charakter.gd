@@ -9,7 +9,7 @@ var dash_count = 1
 var max_slide_time = 2.0
 var slide_time = max_slide_time
 var last_dir = 0
-var WJ_pushback = 210
+var WJ_pushback = 420
 var wall_slide_fr = 100
 var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
 
@@ -18,13 +18,14 @@ func _physics_process(delta: float) -> void:
 	dir = Input.get_axis("left", "right")
 	if dir != 0:
 		last_dir = dir
+	jump()
 	run()
 	dash()
 	walking(delta)
-	jump()
 	wall_slide(delta)
 	crouch_n_slide(delta)
 	print(velocity.y)
+	
 	returning_the_points(delta)
 	gravity(delta)
 	move_and_slide()
@@ -47,7 +48,7 @@ func jump() -> void:
 		elif is_on_wall() and not is_on_floor() and last_dir != last_wall_dir:
 			velocity.y = 0 # Reset Y velocity
 			velocity.y += JUMP_VELOCITY # Apply wall jump velocity
-			velocity.x = WJ_pushback * -last_dir # Push away from the wall
+			velocity.x += WJ_pushback * -last_dir # Push away from the wall
 
 			last_wall_dir = last_dir # Track the direction of the wall jump
 			dir = -dir # Flip direction
@@ -83,9 +84,9 @@ func crouch_n_slide(delta):
 	
 
 func run()-> void:
-	if dir != 0 and Input.is_action_pressed("run"):
+	if dir != 0 and Input.is_action_pressed("run") and not is_on_wall():
 		velocity.x += dir * (MAX_SPEED * 2 / acceleration)
-	if abs(velocity.x) > MAX_SPEED * 2:
+	if abs(velocity.x) > MAX_SPEED * 2 and not is_on_wall():
 		velocity.x = MAX_SPEED * 2 * dir
 
 func dash() -> void:
@@ -95,7 +96,7 @@ func dash() -> void:
 		
 func walking(delta) -> void:
 	# Accelerate when moving left or right
-	if dir != 0:
+	if dir != 0 and not is_on_wall():
 		velocity.x += dir * (MAX_SPEED / acceleration)
 		
 		# Clamp the velocity to the maximum speed

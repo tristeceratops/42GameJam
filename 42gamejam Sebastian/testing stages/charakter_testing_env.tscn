@@ -44,8 +44,18 @@ position = Vector2(6066, 116)
 [node name="StaticBody2D9" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(7082, 167)
 
+[node name="StaticBody2D11" parent="." instance=ExtResource("2_p5px5")]
+position = Vector2(9042, 591)
+rotation = 0.47822
+scale = Vector2(1, 1)
+
+[node name="StaticBody2D10" parent="StaticBody2D11" instance=ExtResource("2_p5px5")]
+position = Vector2(963.202, 108.958)
+rotation = 0.23911
+
 [node name="StaticBody2D10" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(7971, 217)
+position = Vector2(8100, 259)
+rotation = 0.23911
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(-576, -465)
