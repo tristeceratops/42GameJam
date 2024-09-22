@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://nudn265vj0sy"]
+[gd_scene load_steps=6 format=3 uid="uid://nudn265vj0sy"]
 
 [ext_resource type="PackedScene" uid="uid://qmf4lijkhewv" path="res://recources/Main_charakter.tscn" id="1_oq085"]
 [ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://recources/building block.tscn" id="2_p5px5"]
 [ext_resource type="PackedScene" uid="uid://bpbrk3eydk4c8" path="res://recources/platform_up-down.tscn" id="3_67rp5"]
 [ext_resource type="PackedScene" uid="uid://btymfyif16gfr" path="res://recources/platforn_right_left.tscn" id="4_akwvy"]
+[ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://recources/wall.tscn" id="5_d7irh"]
 
 [node name="charakter testing env" type="Node2D"]
 position = Vector2(-27, 120)
@@ -44,22 +45,20 @@ position = Vector2(6066, 116)
 [node name="StaticBody2D9" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(7082, 167)
 
+[node name="StaticBody2D12" parent="." instance=ExtResource("2_p5px5")]
+position = Vector2(9847, 1131)
+rotation = 0.71733
+
 [node name="StaticBody2D11" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(9042, 591)
 rotation = 0.47822
-
-[node name="StaticBody2D10" parent="StaticBody2D11" instance=ExtResource("2_p5px5")]
-position = Vector2(963.202, 108.958)
-rotation = 0.23911
 
 [node name="StaticBody2D10" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(8100, 259)
 rotation = 0.23911
 
-[node name="StaticBody2D2" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(-576, -465)
-rotation = 1.5708
+[node name="wall" parent="." instance=ExtResource("5_d7irh")]
+position = Vector2(-497, -564)
 
-[node name="StaticBody2D2" parent="StaticBody2D2" instance=ExtResource("2_p5px5")]
-position = Vector2(-312, -387)
-rotation = 3.14159
+[node name="wall2" parent="." instance=ExtResource("5_d7irh")]
+position = Vector2(-154, -621)

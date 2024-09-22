@@ -15,10 +15,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3rw7"]
-size = Vector2(120, 118)
+size = Vector2(112, 115)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68lxq"]
-size = Vector2(120, 60)
+size = Vector2(112, 57)
 
 [node name="Main_Charakter" type="CharacterBody2D"]
 script = ExtResource("1_kiafn")
@@ -27,11 +27,11 @@ script = ExtResource("1_kiafn")
 sprite_frames = SubResource("SpriteFrames_b77jk")
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(2, 4)
+position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_t3rw7")
 
 [node name="sliding hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(2, 33)
+position = Vector2(0, 31.5)
 shape = SubResource("RectangleShape2D_68lxq")
 
 [node name="Camera2D" type="Camera2D" parent="."]

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var MAX_SPEED = 420.0
 const JUMP_VELOCITY = -700.0
 const acceleration = 5
@@ -14,16 +15,18 @@ var wall_slide_fr = 100
 var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
 
 
+
 func _physics_process(delta: float) -> void:
 	dir = Input.get_axis("left", "right")
 	if dir != 0:
 		last_dir = dir
+	crouch_n_slide(delta)
 	jump()
 	dash()
 	run()
 	walking(delta)
 	wall_slide(delta)
-	crouch_n_slide(delta)
+
 	
 	returning_the_points(delta)
 	gravity(delta)
@@ -68,34 +71,34 @@ func returning_the_points(delta):
 			slide_time += delta
 
 func crouch_n_slide(delta):
-	if Input.is_action_pressed("down") and abs(velocity.x) >= 210 and Input.is_action_pressed("run") and slide_time > 0:
-		velocity.y += 420
-		velocity.x = 1.5 * MAX_SPEED * last_dir
+	if Input.is_action_pressed("down") and Input.is_action_pressed("run") and abs(velocity.x) >= 250 and slide_time > 0 and not velocity.x == 0:
+		#velocity.y += 420
+		velocity.x -= 0.1 * MAX_SPEED * -last_dir
 		slide_time -= delta
-		$"normal hitbox".visible = false
+		$"normal hitbox".disabled = true
 	elif Input.is_action_pressed("down"):
 		velocity.y += 420
-		velocity.x /= 1.5
-		$"normal hitbox".visible = false
+		velocity.x /= 2
+		$"normal hitbox".disabled = true
 	else:
-		$"normal hitbox".visible = true
+		$"normal hitbox".disabled = false
 	
 
 func run()-> void:
 	if dir != 0 and Input.is_action_pressed("run") and not is_on_wall():
-		velocity.x += dir * (MAX_SPEED * 2 / acceleration)
-	if abs(velocity.x) > MAX_SPEED * 2 and not is_on_wall():
-		velocity.x = MAX_SPEED * 2 * dir
+		velocity.x += dir * (MAX_SPEED * 3 / acceleration)
+	if abs(velocity.x) > MAX_SPEED * 3 and not is_on_wall():
+		velocity.x = MAX_SPEED * 3 * dir
 
 func dash() -> void:
 	if Input.is_action_just_pressed("dash") and not is_on_floor() and dash_count > 0:
-		position.x += 500 * dir
+		velocity.x += 500 * dir
 		dash_count -= 1
-	print(dash_count)
+		move_and_collide(velocity)
 		
 func walking(delta) -> void:
 	# Accelerate when moving left or right
-	if dir != 0 and not is_on_wall():
+	if dir != 0:
 		velocity.x += dir * (MAX_SPEED / acceleration)
 		
 		# Clamp the velocity to the maximum speed
