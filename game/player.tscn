@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://drtd01r1rdsgi"]
+[gd_scene load_steps=33 format=3 uid="uid://drtd01r1rdsgi"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bx7vc"]
 [ext_resource type="Texture2D" uid="uid://dpbbno371fl3d" path="res://Graphics/leap.png" id="1_dhdow"]
@@ -8,6 +8,18 @@
 [ext_resource type="Texture2D" uid="uid://cxnvy2b82ohmx" path="res://Graphics/random.png" id="5_a607m"]
 [ext_resource type="Texture2D" uid="uid://b4bxdbuvh71ds" path="res://Graphics/power_walk.png" id="6_vr30r"]
 [ext_resource type="Texture2D" uid="uid://cgqwx8ajxfkrx" path="res://Graphics/wall_jump.png" id="7_f1fce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80ien"]
+atlas = ExtResource("5_a607m")
+region = Rect2(0, 0, 165, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfqv4"]
+atlas = ExtResource("5_a607m")
+region = Rect2(165, 0, 165, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgrrr"]
+atlas = ExtResource("5_a607m")
+region = Rect2(335, 0, 289, 238)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pna72"]
 atlas = ExtResource("1_dhdow")
@@ -83,6 +95,20 @@ region = Rect2(382, 0, 191, 258)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1mne1"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80ien")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfqv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgrrr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pna72")
@@ -184,7 +210,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_1mne1")
-animation = &"slide"
+animation = &"wall_jump"
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-27, 0)

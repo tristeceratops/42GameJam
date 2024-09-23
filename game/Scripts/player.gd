@@ -38,15 +38,30 @@ func walking() -> void:
 	else:
 		# Decelerate smoothly when no input is given
 		velocity.x = lerp(velocity.x, 0.0, 0.1)
-
+		
 	# Stop tiny movement to avoid sliding when very close to 0
 	if abs(velocity.x) < 0.1:
 		velocity.x = 0
+		
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+	else:
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play()
 
 func	 run() -> void:
 	if dir != 0 and Input.is_action_pressed("sprint") and not is_on_wall():
 		velocity.x += dir * (MAX_SPEED * run_multiplier / acceleration)
 	velocity.x = clamp(velocity.x, -MAX_SPEED * run_multiplier, MAX_SPEED * run_multiplier)
+	if velocity.x != 0:
+		$AnimatedSprite2D.animation = "run"
+		$AnimatedSprite2D.play()
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+	else:
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play()
 
 func jump() -> void:
 	if Input.is_action_just_pressed("jump"):
@@ -67,6 +82,11 @@ func jump() -> void:
 			velocity.x += WJ_pushback * -last_dir
 			last_wall_dir = last_dir
 			dir = -dir
+			
+		if not is_on_floor():
+			$AnimatedSprite2D.animation = "jump"
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+			$AnimatedSprite2D.play()
 
 func dash(delta) -> void:
 	# Trigger dash if the player presses dash, is not on the ground, and has dashes available
@@ -76,6 +96,9 @@ func dash(delta) -> void:
 		velocity.x = DASH_SPEED * dir  # Set dash speed in the current direction
 		velocity.y = 0  # Cancel vertical movement during the dash
 		dash_count -= 1  # Decrease available dash count
+		
+		$AnimatedSprite2D.animation = "dash"
+		$AnimatedSprite2D.play()
 
 	# Handle dash duration
 	if dashing:
@@ -87,6 +110,10 @@ func wall_slide(delta: float) -> void:
 	if is_on_wall() and not is_on_floor() and dir != 0:
 		velocity.y = lerp(velocity.y, WALL_SLIDE_SPEED, delta * 0.5)
 		velocity.y = clamp(velocity.y, -INF, WALL_SLIDE_SPEED)
+		
+		$AnimatedSprite2D.animation = "wall_jump"
+		$AnimatedSprite2D.flip_h = velocity.x < 0
+		$AnimatedSprite2D.play()
 	
 func crouch_n_slide(delta: float) -> void:
 	if Input.is_action_pressed("crouch"):
@@ -97,18 +124,26 @@ func crouch_n_slide(delta: float) -> void:
 			crouching = true
 			$"normal hitbox".disabled = true
 			$"sliding hitbox".disabled = false
+			$AnimatedSprite2D.animation = "slide"
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+			$AnimatedSprite2D.play()
 		else:
 			# Player is crouching but not sliding
 			velocity.x *= CROUCH_SLOWDOWN  # Reduce speed while crouching
 			crouching = true
 			$"normal hitbox".disabled = true
 			$"sliding hitbox".disabled = false
+			$AnimatedSprite2D.animation = "crouch"
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+			$AnimatedSprite2D.play()
 	else:
 		# Player is neither crouching nor sliding
 		crouching = false
 		slide_time = max_slide_time
 		$"normal hitbox".disabled = false 
 		$"sliding hitbox".disabled = true
+		$AnimatedSprite2D.animation = "idle"
+		$AnimatedSprite2D.play()
 		
 func apply_gravity(delta: float) -> void:
 	if is_on_floor():
