@@ -208,15 +208,20 @@ script = ExtResource("1_bx7vc")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -86)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_1mne1")
 animation = &"wall_jump"
+frame = 2
+frame_progress = 0.737877
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-27, 0)
 rotation = 3.14159
 shape = SubResource("CapsuleShape2D_ljsjo")
 
 [node name="sliding hitbox" type="CollisionShape2D" parent="."]
+visible = false
 rotation = -1.5865
 shape = SubResource("CapsuleShape2D_2ke3x")

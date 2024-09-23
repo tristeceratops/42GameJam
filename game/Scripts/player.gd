@@ -160,11 +160,11 @@ func reset_abilities_on_land(delta: float) -> void:
 		dash_count = 1
 		slide_time = max_slide_time
 		
-	if not Input.is_action_pressed("down"):
+	if not Input.is_action_pressed("crouch"):
 		slide_time = clamp(slide_time + delta, 0, max_slide_time)
 
 func _physics_process(delta: float) -> void:
-	dir = Input.get_axis("left", "right")
+	dir = Input.get_axis("ui_left", "ui_right")
 	if dir != 0:
 		last_dir = dir
 	if is_on_wall() and not is_on_floor():
