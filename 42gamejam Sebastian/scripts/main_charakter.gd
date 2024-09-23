@@ -33,9 +33,10 @@ func _physics_process(delta: float) -> void:
 	jump()
 	dash()
 	run()
-	walking(delta)
+	walking()
 	wall_slide(delta)
 	shoot()
+	sling()
 	
 	returning_the_points(delta)
 	gravity(delta)
@@ -46,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func jump() -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 			# Ground jump
 		if is_on_floor():
 			velocity.y += JUMP_VELOCITY
@@ -113,7 +114,7 @@ func dash() -> void:
 		dash_count -= 1
 		move_and_collide(Vector2(velocity.x, 0))
 		
-func walking(delta) -> void:
+func walking() -> void:
 	# Accelerate when moving left or right
 	if dir != 0:
 		velocity.x += dir * (MAX_SPEED / acceleration)
@@ -142,6 +143,10 @@ func shoot():
 		instance.spawnRot = rotation
 		$"..".call_deferred("add_child", instance)
 		projectile_count -= 1
+		
+func sling():
+
+	pass
 
 	
 func gravity(delta) -> void:

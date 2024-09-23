@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 420  # Horizontal speed
+@export var SPEED = 840  # Horizontal speed
 @export var GRAVITY = 210  # Gravity to simulate the arc
 
 var spawnPos : Vector2
