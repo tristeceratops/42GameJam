@@ -1,4 +1,7 @@
 extends CharacterBody2D
+#for the projectile
+@onready var projectile = load("res://recources/projectile.tscn")
+
 
 
 var MAX_SPEED = 420.0
@@ -13,9 +16,13 @@ var last_dir = 0
 var WJ_pushback = 420
 var wall_slide_fr = 100
 var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
+var projectile_count = 4
 var running = false
 var crouching = false
 
+
+func _ready():
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -28,10 +35,14 @@ func _physics_process(delta: float) -> void:
 	run()
 	walking(delta)
 	wall_slide(delta)
-
+	shoot()
 	
 	returning_the_points(delta)
 	gravity(delta)
+	
+	if position.y >= 1000:
+		get_tree().reload_current_scene()
+	
 	move_and_slide()
 
 func jump() -> void:
@@ -120,6 +131,17 @@ func walking(delta) -> void:
 		velocity.x = 0
 func animation():
 	pass
+	
+	
+	
+func shoot():
+	if Input.is_action_just_pressed("shoot") and not projectile_count <= 0:
+		var instance = projectile.instantiate()
+		instance.dir = rotation
+		instance.spawnPos = global_position
+		instance.spawnRot = rotation
+		$"..".call_deferred("add_child", instance)
+		projectile_count -= 1
 
 	
 func gravity(delta) -> void:

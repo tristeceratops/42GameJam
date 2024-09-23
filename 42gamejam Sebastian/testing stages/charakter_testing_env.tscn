@@ -1,16 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://nudn265vj0sy"]
 
-[ext_resource type="PackedScene" uid="uid://qmf4lijkhewv" path="res://recources/Main_charakter.tscn" id="1_oq085"]
 [ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://recources/building block.tscn" id="2_p5px5"]
 [ext_resource type="PackedScene" uid="uid://bpbrk3eydk4c8" path="res://recources/platform_up-down.tscn" id="3_67rp5"]
 [ext_resource type="PackedScene" uid="uid://btymfyif16gfr" path="res://recources/platforn_right_left.tscn" id="4_akwvy"]
+[ext_resource type="PackedScene" uid="uid://p6jkihqb3xmf" path="res://recources/player.tscn" id="5_4lvqy"]
 [ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://recources/wall.tscn" id="5_d7irh"]
 
 [node name="charakter testing env" type="Node2D"]
 position = Vector2(-27, 120)
-
-[node name="Main_Charakter" parent="." instance=ExtResource("1_oq085")]
-position = Vector2(-9, -265)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_p5px5")]
 position = Vector2(-20, -5)
@@ -54,3 +51,6 @@ position = Vector2(-142, 372)
 
 [node name="wall2" parent="." instance=ExtResource("5_d7irh")]
 position = Vector2(-139, -708)
+
+[node name="Player" parent="." instance=ExtResource("5_4lvqy")]
+position = Vector2(100, -347)
