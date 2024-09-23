@@ -1,4 +1,7 @@
 extends CharacterBody2D
+#for the projectile
+@onready var projectile = load("res://recources/projectile.tscn")
+
 
 
 var MAX_SPEED = 420.0
@@ -13,9 +16,13 @@ var last_dir = 0
 var WJ_pushback = 420
 var wall_slide_fr = 100
 var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
+var projectile_count = 4
 var running = false
 var crouching = false
 
+
+func _ready():
+	pass
 
 
 func _physics_process(delta: float) -> void:
@@ -26,16 +33,21 @@ func _physics_process(delta: float) -> void:
 	jump()
 	dash()
 	run()
-	walking(delta)
+	walking()
 	wall_slide(delta)
-
+	shoot()
+	sling()
 	
 	returning_the_points(delta)
 	gravity(delta)
+	
+	if position.y >= 1000:
+		get_tree().reload_current_scene()
+	
 	move_and_slide()
 
 func jump() -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("jump"):
 			# Ground jump
 		if is_on_floor():
 			velocity.y += JUMP_VELOCITY
@@ -67,7 +79,8 @@ func wall_slide(delta):
 func returning_the_points(delta):
 	if is_on_floor():
 		doubble_jump = 1
-		dash_count = 1
+		if dash_count != 1:
+			dash_count += delta
 	if not Input.is_action_pressed("down"):
 		if slide_time != max_slide_time:
 			slide_time += delta
@@ -76,6 +89,7 @@ func crouch_n_slide(delta):
 	if Input.is_action_pressed("down") and Input.is_action_pressed("run") and crouching == false and abs(velocity.x) >= 400 and slide_time > 0 and not velocity.x == 0:
 		#velocity.y += 420
 		velocity.x -= 0.001 * MAX_SPEED * -last_dir
+		velocity.y = abs(velocity.x) / 1.5
 		slide_time -= delta
 		$"normal hitbox".disabled = true
 	elif Input.is_action_pressed("down"):
@@ -89,18 +103,18 @@ func crouch_n_slide(delta):
 	
 
 func run()-> void:
-	if dir != 0 and Input.is_action_pressed("run") and not is_on_wall():
+	if dir != 0 and Input.is_action_pressed("run") and not is_on_wall() and is_on_floor():
 		velocity.x += dir * (MAX_SPEED * 3 / acceleration)
 	if abs(velocity.x) > MAX_SPEED * 3 and not is_on_wall():
 		velocity.x = MAX_SPEED * 3 * dir
 
 func dash() -> void:
 	if Input.is_action_just_pressed("dash") and not is_on_floor() and dash_count > 0:
-		velocity.x += 500 * dir
+		velocity.x += 210 * dir
 		dash_count -= 1
-		move_and_collide(velocity)
+		move_and_collide(Vector2(velocity.x, 0))
 		
-func walking(delta) -> void:
+func walking() -> void:
 	# Accelerate when moving left or right
 	if dir != 0:
 		velocity.x += dir * (MAX_SPEED / acceleration)
@@ -117,6 +131,21 @@ func walking(delta) -> void:
 	if abs(velocity.x) < 0.1:
 		velocity.x = 0
 func animation():
+	pass
+	
+	
+	
+func shoot():
+	if Input.is_action_just_pressed("shoot") and not projectile_count <= 0:
+		var instance = projectile.instantiate()
+		instance.dir = rotation
+		instance.spawnPos = global_position
+		instance.spawnRot = rotation
+		$"..".call_deferred("add_child", instance)
+		projectile_count -= 1
+		
+func sling():
+
 	pass
 
 	
