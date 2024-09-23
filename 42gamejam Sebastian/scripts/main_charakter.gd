@@ -67,7 +67,8 @@ func wall_slide(delta):
 func returning_the_points(delta):
 	if is_on_floor():
 		doubble_jump = 1
-		dash_count = 1
+		if dash_count != 1:
+			dash_count += delta
 	if not Input.is_action_pressed("down"):
 		if slide_time != max_slide_time:
 			slide_time += delta
@@ -76,6 +77,7 @@ func crouch_n_slide(delta):
 	if Input.is_action_pressed("down") and Input.is_action_pressed("run") and crouching == false and abs(velocity.x) >= 400 and slide_time > 0 and not velocity.x == 0:
 		#velocity.y += 420
 		velocity.x -= 0.001 * MAX_SPEED * -last_dir
+		velocity.y = abs(velocity.x) / 1.5
 		slide_time -= delta
 		$"normal hitbox".disabled = true
 	elif Input.is_action_pressed("down"):
@@ -89,16 +91,16 @@ func crouch_n_slide(delta):
 	
 
 func run()-> void:
-	if dir != 0 and Input.is_action_pressed("run") and not is_on_wall():
+	if dir != 0 and Input.is_action_pressed("run") and not is_on_wall() and is_on_floor():
 		velocity.x += dir * (MAX_SPEED * 3 / acceleration)
 	if abs(velocity.x) > MAX_SPEED * 3 and not is_on_wall():
 		velocity.x = MAX_SPEED * 3 * dir
 
 func dash() -> void:
 	if Input.is_action_just_pressed("dash") and not is_on_floor() and dash_count > 0:
-		velocity.x += 500 * dir
+		velocity.x += 210 * dir
 		dash_count -= 1
-		move_and_collide(velocity)
+		move_and_collide(Vector2(velocity.x, 0))
 		
 func walking(delta) -> void:
 	# Accelerate when moving left or right
