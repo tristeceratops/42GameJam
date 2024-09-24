@@ -19,6 +19,7 @@ var last_wall_dir = 0 # To track the direction of the last wall jump (left or ri
 var projectile_count = 4
 var running = false
 var crouching = false
+var dead = false
 
 
 func _ready():
@@ -36,13 +37,15 @@ func _physics_process(delta: float) -> void:
 	walking()
 	wall_slide(delta)
 	shoot()
-	sling()
+	death()
 	
 	returning_the_points(delta)
 	gravity(delta)
 	
-	if position.y >= 1000:
-		get_tree().reload_current_scene()
+	if dead:
+		get_tree().change_scene_to_file("res://recources/death_screen.tscn")
+	if Input.is_action_pressed("RESET"):
+		get_tree().change_scene_to_file("res://recources/starting screen.tscn")
 	
 	move_and_slide()
 
@@ -144,8 +147,9 @@ func shoot():
 		$"..".call_deferred("add_child", instance)
 		projectile_count -= 1
 		
-func sling():
-
+func death():
+	if position.y >= 10000:
+		dead = true
 	pass
 
 	
