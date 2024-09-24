@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://drtd01r1rdsgi"]
+[gd_scene load_steps=32 format=3 uid="uid://drtd01r1rdsgi"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bx7vc"]
 [ext_resource type="Texture2D" uid="uid://dpbbno371fl3d" path="res://Graphics/leap.png" id="1_dhdow"]
@@ -9,13 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b4bxdbuvh71ds" path="res://Graphics/power_walk.png" id="6_vr30r"]
 [ext_resource type="Texture2D" uid="uid://cgqwx8ajxfkrx" path="res://Graphics/wall_jump.png" id="7_f1fce"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_80ien"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_det4y"]
 atlas = ExtResource("5_a607m")
-region = Rect2(0, 0, 165, 238)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kfqv4"]
-atlas = ExtResource("5_a607m")
-region = Rect2(165, 0, 165, 238)
+region = Rect2(166, 0, 166, 238)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgrrr"]
 atlas = ExtResource("5_a607m")
@@ -97,11 +93,13 @@ region = Rect2(382, 0, 191, 258)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_80ien")
+"texture": SubResource("AtlasTexture_det4y")
+}],
+"loop": true,
+"name": &"crouch",
+"speed": 5.0
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kfqv4")
-}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jgrrr")
 }],
@@ -195,33 +193,30 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ljsjo"]
-radius = 80.0
-height = 264.0
+radius = 10.0053
+height = 59.9889
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ke3x"]
-radius = 86.0
-height = 279.526
+radius = 15.9823
+height = 57.8986
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-position = Vector2(-11, 4)
+position = Vector2(3, 30)
 script = ExtResource("1_bx7vc")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -86)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_1mne1")
-animation = &"wall_jump"
-frame = 2
-frame_progress = 0.737877
+animation = &"walk"
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(-27, 0)
-rotation = 3.14159
+position = Vector2(-4, -90)
+rotation = 0.0191986
 shape = SubResource("CapsuleShape2D_ljsjo")
 
 [node name="sliding hitbox" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(1, -79)
 rotation = -1.5865
 shape = SubResource("CapsuleShape2D_2ke3x")
