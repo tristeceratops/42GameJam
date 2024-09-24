@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://y4bl7humv2yo"]
+
+[ext_resource type="Script" path="res://scripts/42_scnd_time_fr.gd" id="1_8qf68"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8qf68")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1093.0
+offset_right = 1112.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "42"
+
+[node name="42 second timer" type="Timer" parent="."]
+wait_time = 42.0
+
+[connection signal="timeout" from="42 second timer" to="42 second timer" method="_on_timeout"]

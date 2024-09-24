@@ -57,7 +57,7 @@ position = Vector2(-142, 372)
 position = Vector2(-139, -708)
 
 [node name="Player" parent="." instance=ExtResource("5_4lvqy")]
-position = Vector2(100, -347)
+position = Vector2(69, -322)
 
 [node name="keaboardplatform" parent="." instance=ExtResource("6_qkaa5")]
 position = Vector2(846, -143)
