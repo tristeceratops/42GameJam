@@ -12,7 +12,7 @@
 position = Vector2(-27, 120)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(-20, -5)
+position = Vector2(-23, -110)
 
 [node name="platform up-down" parent="." instance=ExtResource("3_67rp5")]
 position = Vector2(-1175, -66)
@@ -52,10 +52,10 @@ position = Vector2(8100, 259)
 rotation = 0.23911
 
 [node name="wall" parent="." instance=ExtResource("5_d7irh")]
-position = Vector2(-142, 372)
+position = Vector2(428, 341)
 
 [node name="wall2" parent="." instance=ExtResource("5_d7irh")]
-position = Vector2(-139, -708)
+position = Vector2(430, -776)
 
 [node name="Player" parent="." instance=ExtResource("5_4lvqy")]
 position = Vector2(69, -322)
@@ -70,10 +70,10 @@ offset_right = -486.0
 offset_bottom = -192.0
 
 [node name="Control2" parent="." instance=ExtResource("7_2ecn8")]
-offset_left = 607.0
-offset_top = -236.0
-offset_right = 647.0
-offset_bottom = -196.0
+offset_left = 596.0
+offset_top = -235.0
+offset_right = 636.0
+offset_bottom = -195.0
 
 [node name="Control3" parent="." instance=ExtResource("7_2ecn8")]
 offset_left = 1740.0

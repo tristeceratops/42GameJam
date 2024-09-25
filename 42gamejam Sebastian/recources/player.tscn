@@ -41,8 +41,8 @@ shape = SubResource("RectangleShape2D_68lxq")
 [node name="Camera2D" type="Camera2D" parent="Main_Charakter"]
 
 [node name="Control" parent="Main_Charakter" instance=ExtResource("3_owbac")]
-offset_left = -1140.0
-offset_top = -333.0
-offset_right = -1100.0
-offset_bottom = -293.0
+offset_left = -579.0
+offset_top = -324.0
+offset_right = -539.0
+offset_bottom = -284.0
 metadata/_edit_use_anchors_ = true

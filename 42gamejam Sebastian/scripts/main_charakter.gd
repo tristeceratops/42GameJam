@@ -13,7 +13,7 @@ var dash_count = 1
 var max_slide_time = 2.0
 var slide_time = max_slide_time
 var last_dir = 0
-var WJ_pushback = 420
+var WJ_pushback = 840
 var wall_slide_fr = 100
 var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
 var projectile_count = 4
@@ -67,7 +67,7 @@ func jump() -> void:
 		elif is_on_wall() and not is_on_floor() and last_dir != last_wall_dir:
 			velocity.y = 0 # Reset Y velocity
 			velocity.y += JUMP_VELOCITY # Apply wall jump velocity
-			velocity.x += WJ_pushback * -last_dir # Push away from the wall
+			velocity.x = WJ_pushback * -last_dir # Push away from the wall
 
 			last_wall_dir = last_dir # Track the direction of the wall jump
 			dir = -dir # Flip direction

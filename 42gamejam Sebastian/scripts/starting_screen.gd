@@ -2,17 +2,21 @@ extends Control
 
 var scene_folder_path = "res://testing stages/"
 var i = 42
+var dir = DirAccess.open(scene_folder_path)
+var scenes
 
 func _ready() -> void:
 	# Call randomize to ensure proper random selection
 	randomize()
 
 func _on_button_pressed() -> void:
-	print("Button Pressed!")  # Debug: Check if the button press is detected
+	print("Button Pressed!")  
+	random_level()# Debug: Check if the button press is detected
 		# Get all files in the folder
-	var dir = DirAccess.open(scene_folder_path)
+	
+func random_level():
 	if dir:
-		var scenes = []
+		scenes = []
 		dir.list_dir_begin()
 				
 		# Loop through all files in the directory
