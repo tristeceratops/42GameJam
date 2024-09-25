@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bysxyxt2xv5bt"]
+
+[ext_resource type="PackedScene" uid="uid://p6jkihqb3xmf" path="res://recources/player.tscn" id="1_h3hrb"]
+[ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://recources/wall.tscn" id="2_eqk4n"]
+[ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://recources/building block.tscn" id="3_ekw6l"]
+[ext_resource type="PackedScene" uid="uid://bpbrk3eydk4c8" path="res://recources/platform_up-down.tscn" id="4_gw43x"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_h3hrb")]
+position = Vector2(623, 138)
+
+[node name="wall" parent="." instance=ExtResource("2_eqk4n")]
+position = Vector2(473, 643)
+
+[node name="wall2" parent="." instance=ExtResource("2_eqk4n")]
+position = Vector2(1070, 614)
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_ekw6l")]
+position = Vector2(1322, 1609)
+
+[node name="platform up down" parent="." instance=ExtResource("4_gw43x")]
+position = Vector2(-340, 1236)

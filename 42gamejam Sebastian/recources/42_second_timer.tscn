@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://in6h8wgyfjcb"]
+
+[ext_resource type="Script" path="res://scripts/42_second_timer.gd" id="1_pjl3h"]
+
+[node name="42 second timer" type="Timer"]
+wait_time = 42.0
+script = ExtResource("1_pjl3h")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -19.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "42"
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

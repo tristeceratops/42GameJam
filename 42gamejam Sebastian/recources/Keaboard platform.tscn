@@ -30,7 +30,7 @@ radius = 26.0192
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_63g40"]
 size = Vector2(66, 18)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="keaboardplatform" type="CharacterBody2D"]
 script = ExtResource("1_ij4yl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
