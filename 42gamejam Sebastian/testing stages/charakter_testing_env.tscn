@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nudn265vj0sy"]
+[gd_scene load_steps=8 format=3 uid="uid://nudn265vj0sy"]
 
 [ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://recources/building block.tscn" id="2_p5px5"]
 [ext_resource type="PackedScene" uid="uid://bpbrk3eydk4c8" path="res://recources/platform_up-down.tscn" id="3_67rp5"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://p6jkihqb3xmf" path="res://recources/player.tscn" id="5_4lvqy"]
 [ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://recources/wall.tscn" id="5_d7irh"]
 [ext_resource type="PackedScene" uid="uid://bcysfr6mynkth" path="res://recources/Keaboard platform.tscn" id="6_qkaa5"]
+[ext_resource type="PackedScene" uid="uid://y4bl7humv2yo" path="res://recources/42 scnd time fr.tscn" id="7_2ecn8"]
 
 [node name="charakter testing env" type="Node2D"]
 position = Vector2(-27, 120)
@@ -61,3 +62,21 @@ position = Vector2(69, -322)
 
 [node name="keaboardplatform" parent="." instance=ExtResource("6_qkaa5")]
 position = Vector2(846, -143)
+
+[node name="Control" parent="." instance=ExtResource("7_2ecn8")]
+offset_left = -526.0
+offset_top = -232.0
+offset_right = -486.0
+offset_bottom = -192.0
+
+[node name="Control2" parent="." instance=ExtResource("7_2ecn8")]
+offset_left = 607.0
+offset_top = -236.0
+offset_right = 647.0
+offset_bottom = -196.0
+
+[node name="Control3" parent="." instance=ExtResource("7_2ecn8")]
+offset_left = 1740.0
+offset_top = -242.0
+offset_right = 1780.0
+offset_bottom = -202.0
