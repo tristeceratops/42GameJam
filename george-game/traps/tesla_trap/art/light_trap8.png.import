@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jxhqnl51d7dl"
-path="res://.godot/imported/cardboard_door2.png-fc7aab417077f30814ba1d1a4c37ab92.ctex"
+uid="uid://bpau6pdebtxbi"
+path="res://.godot/imported/light_trap8.png-ddf3a9bbea6161a4bdb5bfebd07c9650.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cardboard_door2.png"
-dest_files=["res://.godot/imported/cardboard_door2.png-fc7aab417077f30814ba1d1a4c37ab92.ctex"]
+source_file="res://traps/tesla_trap/art/light_trap8.png"
+dest_files=["res://.godot/imported/light_trap8.png-ddf3a9bbea6161a4bdb5bfebd07c9650.ctex"]
 
 [params]
 

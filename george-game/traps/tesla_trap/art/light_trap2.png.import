@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df21ykuk4n5xj"
-path="res://.godot/imported/Preview1.png-d7cc2ed5759a3c5f64ae2e1cb1f4ca1f.ctex"
+uid="uid://2amwwm7qjmqq"
+path="res://.godot/imported/light_trap2.png-acc94fe121b891ace9b477fdb0523013.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Preview1.png"
-dest_files=["res://.godot/imported/Preview1.png-d7cc2ed5759a3c5f64ae2e1cb1f4ca1f.ctex"]
+source_file="res://traps/tesla_trap/art/light_trap2.png"
+dest_files=["res://.godot/imported/light_trap2.png-acc94fe121b891ace9b477fdb0523013.ctex"]
 
 [params]
 

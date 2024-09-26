@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dm765s6e8cevk"]
 
-[ext_resource type="Script" path="res://scripts/starting_screen.gd" id="1_h4p00"]
+[ext_resource type="Script" path="res://scripts/raja old game/starting_screen.gd" id="1_h4p00"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
