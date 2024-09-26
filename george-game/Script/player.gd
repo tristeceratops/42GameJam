@@ -261,15 +261,16 @@ func reset_abilities_on_land(delta: float) -> void:
 		slide_time = clamp(slide_time + delta, 0, max_slide_time)
 
 func spawn_falling_tile(player: Node) -> void:
-	var tile = tile_of_death.instantiate()
-	tile.gravity = GRAVITY * 5
-	# Set the spawn position for the falling tile
-	var spawn_position = Vector2(last_position.x + 50, player.position.y - 200)  # Spawn above the player
-	tile.position = spawn_position
+	if TILE_FALL > 0:
+		var tile = tile_of_death.instantiate()
+		tile.gravity = GRAVITY * 5
+		# Set the spawn position for the falling tile
+		var spawn_position = Vector2(last_position.x + 50, player.position.y - 200)  # Spawn above the player
+		tile.position = spawn_position
 	
-	# Add the tile to the scene
-	get_parent().add_child(tile)
-	tile.set_player(player)
+		# Add the tile to the scene
+		get_parent().add_child(tile)
+		tile.set_player(player)
 
 func _physics_process(delta: float) -> void:
 	# Track the distance moved
