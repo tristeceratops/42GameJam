@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://1pwmyrnckvom"]
 
-[ext_resource type="Script" path="res://scripts/raja new game/tile_of_death.gd" id="1_nbcjt"]
+[ext_resource type="Script" path="res://Script/tile_of_death.gd" id="1_nbcjt"]
 [ext_resource type="Texture2D" uid="uid://bf52fo6p1gd1x" path="res://art/raja new game/logo.png" id="1_yg7no"]
 [ext_resource type="AudioStream" uid="uid://dxy0blh0k3g8n" path="res://sounds/game_over.mp3" id="4_lns2b"]
 

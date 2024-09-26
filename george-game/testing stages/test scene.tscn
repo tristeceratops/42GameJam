@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqix6tk8ne3n8"]
 
-[ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://resources/last main/building block.tscn" id="1_xkrln"]
-[ext_resource type="PackedScene" uid="uid://p6jkihqb3xmf" path="res://resources/raja old game/player.tscn" id="2_8ky50"]
-[ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://resources/last main/wall.tscn" id="3_1er8e"]
-[ext_resource type="PackedScene" uid="uid://dqrikso5ejkmn" path="res://traps/tesla_trap/scenes/lighting_trap.tscn" id="4_ugcql"]
+[ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://old stuff/resources/last main/building block.tscn" id="1_xkrln"]
+[ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://old stuff/resources/last main/wall.tscn" id="3_1er8e"]
+[ext_resource type="PackedScene" uid="uid://dqrikso5ejkmn" path="res://traps/tesla_trap/scenes/lighting_trap.tscn" id="3_fnuvs"]
+[ext_resource type="PackedScene" uid="uid://6as4jbekq0c3" path="res://recource/player.tscn" id="4_dxceh"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -13,15 +13,15 @@ position = Vector2(468, 586)
 [node name="StaticBody2D2" parent="." instance=ExtResource("1_xkrln")]
 position = Vector2(1467, 587)
 
-[node name="Player" parent="." instance=ExtResource("2_8ky50")]
-position = Vector2(64, 465)
-
 [node name="wall" parent="." instance=ExtResource("3_1er8e")]
 position = Vector2(1899, -57)
 
 [node name="wall2" parent="." instance=ExtResource("3_1er8e")]
 position = Vector2(1580, -83)
 
-[node name="Node2D" parent="." instance=ExtResource("4_ugcql")]
+[node name="Node2D" parent="." instance=ExtResource("3_fnuvs")]
 position = Vector2(1179, 487)
 script = null
+
+[node name="player_node" parent="." instance=ExtResource("4_dxceh")]
+position = Vector2(134, 320)

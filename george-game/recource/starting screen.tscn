@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm765s6e8cevk"]
 
-[ext_resource type="Script" path="res://scripts/last main/starting_screen.gd" id="1_mqnkd"]
+[ext_resource type="Script" path="res://old stuff/scripts/last main/starting_screen.gd" id="1_mqnkd"]
 [ext_resource type="Texture2D" uid="uid://bhfjsnieaxeha" path="res://art/last main/Play_Button.webp" id="2_u8bec"]
 
 [node name="Control" type="Control"]

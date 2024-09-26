@@ -1,15 +1,16 @@
-[gd_scene load_steps=37 format=3 uid="uid://6as4jbekq0c3"]
+[gd_scene load_steps=41 format=3 uid="uid://6as4jbekq0c3"]
 
-[ext_resource type="Script" path="res://resources/player.gd" id="1_7w102"]
+[ext_resource type="Script" path="res://Script/player.gd" id="1_7w102"]
 [ext_resource type="Texture2D" uid="uid://dpbbno371fl3d" path="res://art/raja new game/leap.png" id="1_dhdow"]
 [ext_resource type="Texture2D" uid="uid://c1v1x6rkheabf" path="res://art/raja new game/naruto_run.png" id="2_6g1ce"]
-[ext_resource type="PackedScene" uid="uid://1pwmyrnckvom" path="res://resources/last main/tile_of_death.tscn" id="2_dv16j"]
+[ext_resource type="PackedScene" uid="uid://1pwmyrnckvom" path="res://recource/tile_of_death.tscn" id="2_dv16j"]
 [ext_resource type="Texture2D" uid="uid://cdmewvwo22hq2" path="res://art/raja new game/slide.png" id="3_occ1m"]
 [ext_resource type="Texture2D" uid="uid://711gb8v7gw7v" path="res://art/raja new game/throw.png" id="4_nxhpw"]
 [ext_resource type="Texture2D" uid="uid://cxnvy2b82ohmx" path="res://art/raja new game/random.png" id="5_a607m"]
 [ext_resource type="Texture2D" uid="uid://b4bxdbuvh71ds" path="res://art/raja new game/power_walk.png" id="6_vr30r"]
 [ext_resource type="Texture2D" uid="uid://cgqwx8ajxfkrx" path="res://art/raja new game/wall_jump.png" id="7_f1fce"]
 [ext_resource type="AudioStream" uid="uid://b2lx2aoeci0r3" path="res://sounds/754784__evanboyerman__walk-footstep-with-clothing-foley-3-hard-floorwooden_new.mp3" id="9_58fq8"]
+[ext_resource type="Texture2D" uid="uid://cjmt357oxrfpm" path="res://art/wall_slide.webp" id="10_1x6c5"]
 [ext_resource type="AudioStream" uid="uid://b4owiu8y7lxh1" path="res://sounds/final_sound_jump_mix_of_sounds.mp3" id="10_o7nr1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_det4y"]
@@ -95,6 +96,18 @@ region = Rect2(191, 0, 191, 258)
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2j1u"]
 atlas = ExtResource("7_f1fce")
 region = Rect2(382, 0, 191, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crlhp"]
+atlas = ExtResource("10_1x6c5")
+region = Rect2(0, 0, 155, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jj66u"]
+atlas = ExtResource("10_1x6c5")
+region = Rect2(183, 0, 183, 258)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht1tm"]
+atlas = ExtResource("10_1x6c5")
+region = Rect2(391, 0, 184, 258)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1mne1"]
 animations = [{
@@ -205,6 +218,20 @@ animations = [{
 "loop": true,
 "name": &"wall_jump",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crlhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jj66u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht1tm")
+}],
+"loop": true,
+"name": &"wall_slide",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14mdo"]
@@ -231,7 +258,7 @@ metadata/_edit_group_ = true
 position = Vector2(0, -86)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_1mne1")
-animation = &"stand"
+animation = &"wall_slide"
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-4.13436, -83.0026)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://tdbww7qbhgv8"]
 
-[ext_resource type="Script" path="res://scripts/raja new game/timer_canvas.gd" id="1_ccqke"]
+[ext_resource type="Script" path="res://Script/timer_canvas.gd" id="1_ccqke"]
 [ext_resource type="AudioStream" uid="uid://dxy0blh0k3g8n" path="res://sounds/game_over.mp3" id="3_t4rrb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ke7r0"]

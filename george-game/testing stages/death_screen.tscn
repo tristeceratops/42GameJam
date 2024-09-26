@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://drpy6d5c2sldl"]
 
-[ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_vebi1"]
+[ext_resource type="Script" path="res://old stuff/scripts/last main/death_screen.gd" id="1_vebi1"]
 
 [node name="DEATH SCREEN" type="Control"]
 layout_mode = 3

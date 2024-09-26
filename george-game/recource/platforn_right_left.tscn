@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btymfyif16gfr"]
 
-[ext_resource type="Script" path="res://scripts/raja new game/platforn_right_left.gd" id="1_lrts5"]
+[ext_resource type="Script" path="res://Script/platforn_right_left.gd" id="1_lrts5"]
 [ext_resource type="Texture2D" uid="uid://dryx32cvid0ss" path="res://icon.svg" id="1_mdgqs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cea3"]

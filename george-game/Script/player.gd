@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@onready var projectile = load("res://resources/last main/projectile.tscn")
+@onready var projectile = load("res://recource/projectile.tscn")
 
 
 @export var MAX_SPEED = 420.0
@@ -130,6 +130,7 @@ func jump() -> void:
 		
 		# Wall jump (ensure it's a different wall than last jump)
 		elif is_on_wall() and last_dir != last_wall_dir:
+			velocity.y = 0
 			velocity.y = JUMP_VELOCITY
 			velocity.x += WJ_pushback * -last_dir
 			last_wall_dir = last_dir
@@ -167,9 +168,15 @@ func dash(delta) -> void:
 			dashing = false  # End dash when the timer runs out
 
 func wall_slide(delta: float) -> void:
+	if dir != 0:
+		velocity.x += dir * (MAX_SPEED / acceleration)
+		# Clamp the velocity to max speed when not running
+		if not Input.is_action_pressed("sprint"):
+			velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 	if is_on_wall() and not is_on_floor() and dir != 0:
 		velocity.y += WALL_SLIDE_SPEED * delta
 		velocity.y = clamp(velocity.y, -INF, WALL_SLIDE_SPEED)
+		
 
 		var collision = get_last_slide_collision()
 
@@ -179,7 +186,7 @@ func wall_slide(delta: float) -> void:
 				$AnimatedSprite2D.flip_h = true
 			else:
 				$AnimatedSprite2D.flip_h = false
-			$AnimatedSprite2D.animation = "wall_jump"
+			$AnimatedSprite2D.animation = "wall_slide"
 			$AnimatedSprite2D.play()
 		else :
 			$AnimatedSprite2D.stop()
