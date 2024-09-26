@@ -1,0 +1,269 @@
+[gd_scene load_steps=18 format=3 uid="uid://dqrikso5ejkmn"]
+
+[ext_resource type="Script" path="res://traps/tesla_trap/scripts/lighting_trap.gd" id="1_h0rgj"]
+[ext_resource type="Texture2D" uid="uid://ci48j0788amnc" path="res://traps/tesla_trap/art/light_trap1.png" id="1_o7s4k"]
+[ext_resource type="Texture2D" uid="uid://2amwwm7qjmqq" path="res://traps/tesla_trap/art/light_trap2.png" id="2_4fm4j"]
+[ext_resource type="Texture2D" uid="uid://dhy8awtmm23cg" path="res://traps/tesla_trap/art/light_trap3.png" id="3_tsyx6"]
+[ext_resource type="Texture2D" uid="uid://duutw6h6u7pvi" path="res://traps/tesla_trap/art/light_trap5.png" id="5_ykgj8"]
+[ext_resource type="Texture2D" uid="uid://dp2uvfih7shmm" path="res://traps/tesla_trap/art/light_trap6.png" id="6_g3p13"]
+[ext_resource type="Texture2D" uid="uid://coch2d1jahhxy" path="res://traps/tesla_trap/art/light_trap7.png" id="7_qkou1"]
+[ext_resource type="Texture2D" uid="uid://bpau6pdebtxbi" path="res://traps/tesla_trap/art/light_trap8.png" id="8_08xk6"]
+[ext_resource type="Texture2D" uid="uid://deryd5lma58y5" path="res://traps/tesla_trap/art/light_trap9.png" id="9_p1k1h"]
+[ext_resource type="Texture2D" uid="uid://djib6jgjfdrkp" path="res://traps/tesla_trap/art/light_trap10.png" id="10_yk5c6"]
+
+[sub_resource type="Animation" id="Animation_f3cxp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_o7s4k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HurtingArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/PointLight2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vg1fb"]
+resource_name = "trap"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.933333, 0.1, 0.3, 1.76667, 1.86667, 1.96667, 2.06667, 2.16667, 2.36667, 2.46667, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_o7s4k"), ExtResource("2_4fm4j"), ExtResource("3_tsyx6"), ExtResource("5_ykgj8"), ExtResource("5_ykgj8"), ExtResource("6_g3p13"), ExtResource("7_qkou1"), ExtResource("8_08xk6"), ExtResource("9_p1k1h"), ExtResource("10_yk5c6"), ExtResource("1_o7s4k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/HurtingArea/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.86667, 2.3667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D/PointLight2D:enabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.8667, 2.3667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D/PointLight2D2:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.86667, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/PointLight2D3:enabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.86667, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D/PointLight2D4:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.86667, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D/PointLight2D5:enabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.86667, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite2D/PointLight2D6:enabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.86667, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite2D/PointLight2D7:enabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.86667, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l5gru"]
+_data = {
+"RESET": SubResource("Animation_f3cxp"),
+"trap": SubResource("Animation_vg1fb")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nktu"]
+size = Vector2(20, 80.5)
+
+[sub_resource type="Gradient" id="Gradient_8blhq"]
+offsets = PackedFloat32Array(0.047619, 0.196429, 0.297619, 0.517857)
+colors = PackedColorArray(1, 1, 1, 1, 0.894922, 0.894922, 0.894922, 1, 0.517184, 0.517184, 0.517184, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1tavo"]
+gradient = SubResource("Gradient_8blhq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_daslk"]
+size = Vector2(9.5, 12.5)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_h0rgj")
+
+[node name="TrapAnimPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_l5gru")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_o7s4k")
+
+[node name="HurtingArea" type="Area2D" parent="Sprite2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtingArea"]
+position = Vector2(-1, -0.25)
+shape = SubResource("RectangleShape2D_6nktu")
+disabled = true
+one_way_collision_margin = 0.0
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(-6.5, -35.5)
+scale = Vector2(0.140625, 0.140625)
+enabled = false
+color = Color(0.321727, 0.80146, 0.668336, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1tavo")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(-6, 8)
+scale = Vector2(0.140625, 0.226563)
+enabled = false
+color = Color(0.321727, 0.80146, 0.668336, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1tavo")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(2, 34)
+scale = Vector2(0.226563, 0.195312)
+enabled = false
+color = Color(0.321727, 0.80146, 0.668336, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1tavo")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(1, -10)
+scale = Vector2(0.140625, 0.140625)
+enabled = false
+color = Color(0.321727, 0.80146, 0.668336, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1tavo")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(4, 8)
+scale = Vector2(0.140625, 0.140625)
+enabled = false
+color = Color(0.321727, 0.80146, 0.668336, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1tavo")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(-8, 23)
+scale = Vector2(0.101563, 0.101562)
+enabled = false
+color = Color(0.321727, 0.80146, 0.668336, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1tavo")
+
+[node name="PointLight2D7" type="PointLight2D" parent="Sprite2D"]
+position = Vector2(6, -24)
+scale = Vector2(0.101563, 0.101563)
+enabled = false
+color = Color(0.321727, 0.80146, 0.668336, 1)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_1tavo")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(0, 42)
+shape = SubResource("RectangleShape2D_daslk")
