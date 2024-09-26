@@ -1,6 +1,6 @@
 extends Control
 
-var scene_folder_path = "res://testing stages/"
+var scene_folder_path = "res://level/"
 var i = 42
 var dir = DirAccess.open(scene_folder_path)
 var scenes
