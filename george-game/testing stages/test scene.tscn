@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqix6tk8ne3n8"]
 
-[ext_resource type="PackedScene" path="res://recources/last main/building block.tscn" id="1_xkrln"]
-[ext_resource type="PackedScene" uid="uid://p6jkihqb3xmf" path="res://recources/player.tscn" id="2_8ky50"]
-[ext_resource type="PackedScene" path="res://recources/last main/wall.tscn" id="3_1er8e"]
+[ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://resources/last main/building block.tscn" id="1_xkrln"]
+[ext_resource type="PackedScene" uid="uid://p6jkihqb3xmf" path="res://resources/raja old game/player.tscn" id="2_8ky50"]
+[ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://resources/last main/wall.tscn" id="3_1er8e"]
 [ext_resource type="PackedScene" uid="uid://dqrikso5ejkmn" path="res://traps/tesla_trap/scenes/lighting_trap.tscn" id="4_ugcql"]
 
 [node name="Node2D" type="Node2D"]
