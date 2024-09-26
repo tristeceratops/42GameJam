@@ -214,7 +214,7 @@ func spawn_falling_tile(player: Node) -> void:
 	var tile = tile_of_death.instantiate()
 	tile.gravity = GRAVITY * 5
 	# Set the spawn position for the falling tile
-	var spawn_position = Vector2(last_position.x, player.position.y - 200)  # Spawn above the player
+	var spawn_position = Vector2(last_position.x + 50, player.position.y - 200)  # Spawn above the player
 	tile.position = spawn_position
 	
 	# Add the tile to the scene
@@ -233,7 +233,7 @@ func _physics_process(delta: float) -> void:
 	# Spawn tile after moving tile_fall_distance
 	if distance_moved >= tile_fall_distance:
 		spawn_falling_tile(player)
-		distance_moved = 0  # Reset distance after tile spawns
+		distance_moved = -100  # Reset distance after tile spawns
 		
 	dir = Input.get_axis("move_left", "move_right")
 	if dir != 0:
