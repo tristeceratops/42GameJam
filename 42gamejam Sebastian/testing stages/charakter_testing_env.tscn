@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nudn265vj0sy"]
+[gd_scene load_steps=8 format=3 uid="uid://nudn265vj0sy"]
 
 [ext_resource type="PackedScene" uid="uid://dqmwmwd6w1q44" path="res://recources/building block.tscn" id="2_p5px5"]
 [ext_resource type="PackedScene" uid="uid://bpbrk3eydk4c8" path="res://recources/platform_up-down.tscn" id="3_67rp5"]
@@ -6,12 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://p6jkihqb3xmf" path="res://recources/player.tscn" id="5_4lvqy"]
 [ext_resource type="PackedScene" uid="uid://c31rjyce4ed4m" path="res://recources/wall.tscn" id="5_d7irh"]
 [ext_resource type="PackedScene" uid="uid://bcysfr6mynkth" path="res://recources/Keaboard platform.tscn" id="6_qkaa5"]
+[ext_resource type="PackedScene" uid="uid://y4bl7humv2yo" path="res://recources/42 scnd time fr.tscn" id="7_2ecn8"]
 
 [node name="charakter testing env" type="Node2D"]
 position = Vector2(-27, 120)
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_p5px5")]
-position = Vector2(-20, -5)
+position = Vector2(-23, -110)
+
+[node name="StaticBody2D" parent="StaticBody2D" instance=ExtResource("2_p5px5")]
+position = Vector2(1005, -216)
 
 [node name="platform up-down" parent="." instance=ExtResource("3_67rp5")]
 position = Vector2(-1175, -66)
@@ -51,13 +55,31 @@ position = Vector2(8100, 259)
 rotation = 0.23911
 
 [node name="wall" parent="." instance=ExtResource("5_d7irh")]
-position = Vector2(-142, 372)
+position = Vector2(428, 341)
 
 [node name="wall2" parent="." instance=ExtResource("5_d7irh")]
-position = Vector2(-139, -708)
+position = Vector2(430, -776)
 
 [node name="Player" parent="." instance=ExtResource("5_4lvqy")]
 position = Vector2(69, -322)
 
 [node name="keaboardplatform" parent="." instance=ExtResource("6_qkaa5")]
 position = Vector2(846, -143)
+
+[node name="Control" parent="." instance=ExtResource("7_2ecn8")]
+offset_left = -526.0
+offset_top = -232.0
+offset_right = -486.0
+offset_bottom = -192.0
+
+[node name="Control2" parent="." instance=ExtResource("7_2ecn8")]
+offset_left = 596.0
+offset_top = -235.0
+offset_right = 636.0
+offset_bottom = -195.0
+
+[node name="Control3" parent="." instance=ExtResource("7_2ecn8")]
+offset_left = 1740.0
+offset_top = -242.0
+offset_right = 1780.0
+offset_bottom = -202.0

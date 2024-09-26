@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://p6jkihqb3xmf"]
+[gd_scene load_steps=8 format=3 uid="uid://p6jkihqb3xmf"]
 
 [ext_resource type="Script" path="res://scripts/main_charakter.gd" id="1_ar6uh"]
 [ext_resource type="Texture2D" uid="uid://bgeqoeenytb3q" path="res://icon.svg" id="2_0c6nd"]
+[ext_resource type="PackedScene" uid="uid://in6h8wgyfjcb" path="res://recources/42_second_timer.tscn" id="3_06p4o"]
 [ext_resource type="PackedScene" uid="uid://y4bl7humv2yo" path="res://recources/42 scnd time fr.tscn" id="3_owbac"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b77jk"]
@@ -41,8 +42,10 @@ shape = SubResource("RectangleShape2D_68lxq")
 [node name="Camera2D" type="Camera2D" parent="Main_Charakter"]
 
 [node name="Control" parent="Main_Charakter" instance=ExtResource("3_owbac")]
-offset_left = -579.0
-offset_top = -324.0
-offset_right = -539.0
-offset_bottom = -284.0
+offset_left = -1140.0
+offset_top = -333.0
+offset_right = -1100.0
+offset_bottom = -293.0
 metadata/_edit_use_anchors_ = true
+
+[node name="42 second timer" parent="." instance=ExtResource("3_06p4o")]

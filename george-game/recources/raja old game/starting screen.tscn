@@ -1,13 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm765s6e8cevk"]
+[gd_scene load_steps=2 format=3 uid="uid://dm765s6e8cevk"]
 
 [ext_resource type="Script" path="res://scripts/starting_screen.gd" id="1_h4p00"]
-[ext_resource type="Texture2D" uid="uid://bhfjsnieaxeha" path="res://art/Play_Button.webp" id="2_qgr70"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -22.0
+offset_right = 24.0
+offset_bottom = -22.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h4p00")
@@ -19,16 +22,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -222.0
-offset_top = -48.0
-offset_right = 206.0
-offset_bottom = 49.0
+offset_left = -474.0
+offset_top = -70.0
+offset_right = 474.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Button"]
-position = Vector2(209, 42)
-scale = Vector2(0.500508, 0.353572)
-texture = ExtResource("2_qgr70")
+text = "Play"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
