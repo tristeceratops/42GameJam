@@ -69,7 +69,7 @@ polygon = PackedVector2Array(-16, -16, 16, 16, 16, 16, -16, 16)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xcscu"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, -16, -16, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvt7b"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ulbb3"]
 texture = ExtResource("1_t7if5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -160,12 +160,13 @@ texture_region_size = Vector2i(32, 32)
 2:6/0 = 0
 5:4/0 = 0
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -2.5625, -15.5, 2.4375, 15.375, 2.375, 15.375, -2.6875)
+5:4/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="TileSet" id="TileSet_hyus2"]
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_fvt7b")
+sources/0 = SubResource("TileSetAtlasSource_ulbb3")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_twcc0")

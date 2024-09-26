@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://bv0trqfxr167k"]
+
+[ext_resource type="Texture2D" uid="uid://t0eorkmlgk68" path="res://testing stages/boss_level/door/cardboard_door1.png" id="1_gs6up"]
+[ext_resource type="Texture2D" uid="uid://dfmip3e10erqj" path="res://testing stages/boss_level/door/cardboard_door2.png" id="2_umjef"]
+[ext_resource type="Texture2D" uid="uid://dr3hc7vvgq3x6" path="res://testing stages/boss_level/door/cardboard_door3.png" id="3_2txf1"]
+[ext_resource type="Texture2D" uid="uid://dlm4rxxnr03t" path="res://testing stages/boss_level/door/cardboard_door4.png" id="4_6w2wq"]
+[ext_resource type="Texture2D" uid="uid://gkisykyaam1a" path="res://testing stages/boss_level/door/cardboard_door5.png" id="5_cagle"]
+[ext_resource type="Script" path="res://testing stages/boss_level/door/hurt_area_door.gd" id="6_kem8x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hckgn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gs6up")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_umjef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2txf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6w2wq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cagle")
+}],
+"loop": false,
+"name": &"open_door",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_uc4lq"]
+offsets = PackedFloat32Array(0, 0.678571)
+colors = PackedColorArray(0.189008, 0.776333, 3.85046e-06, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j2ush"]
+gradient = SubResource("Gradient_uc4lq")
+width = 150
+height = 80
+fill = 1
+fill_from = Vector2(0.487069, 0.662716)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nu2ai"]
+size = Vector2(31, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1g8yh"]
+size = Vector2(36, 66)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hckgn")
+animation = &"open_door"
+speed_scale = 1.7
+script = ExtResource("6_kem8x")
+
+[node name="PointLight2D3" type="PointLight2D" parent="AnimatedSprite2D"]
+position = Vector2(-3.99997, -1.43051e-06)
+scale = Vector2(0.57819, 0.688202)
+color = Color(0.860626, 0.837736, 0.832827, 1)
+energy = 0.96
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_j2ush")
+texture_scale = 4.46
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_nu2ai")
+
+[node name="HurtArea" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/HurtArea"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_1g8yh")
+debug_color = Color(0.955649, 2.88785e-07, 0.542101, 0.42)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="AnimatedSprite2D" method="_on_animation_finished"]
+[connection signal="area_entered" from="AnimatedSprite2D/HurtArea" to="AnimatedSprite2D" method="_on_hurt_area_area_entered"]

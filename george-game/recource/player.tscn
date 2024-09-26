@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Script/player.gd" id="1_7w102"]
 [ext_resource type="Texture2D" uid="uid://dpbbno371fl3d" path="res://art/raja new game/leap.png" id="1_dhdow"]
 [ext_resource type="Texture2D" uid="uid://c1v1x6rkheabf" path="res://art/raja new game/naruto_run.png" id="2_6g1ce"]
-[ext_resource type="PackedScene" uid="uid://1pwmyrnckvom" path="res://recource/tile_of_death.tscn" id="2_dv16j"]
+[ext_resource type="PackedScene" uid="uid://drpy6d5c2sldl" path="res://testing stages/death_screen.tscn" id="2_vbq17"]
 [ext_resource type="Texture2D" uid="uid://cdmewvwo22hq2" path="res://art/raja new game/slide.png" id="3_occ1m"]
 [ext_resource type="Texture2D" uid="uid://711gb8v7gw7v" path="res://art/raja new game/throw.png" id="4_nxhpw"]
 [ext_resource type="Texture2D" uid="uid://cxnvy2b82ohmx" path="res://art/raja new game/random.png" id="5_a607m"]
@@ -244,36 +244,36 @@ height = 57.8986
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw1tt"]
 size = Vector2(13, 41)
 
-[node name="player_node" type="CharacterBody2D"]
-position = Vector2(-1, 63)
+[node name="player_node" type="CharacterBody2D" groups=["player"]]
+position = Vector2(0, -1)
 floor_constant_speed = true
 floor_max_angle = 0.872665
 floor_snap_length = 20.0
 script = ExtResource("1_7w102")
-tile_of_death = ExtResource("2_dv16j")
+tile_of_death = ExtResource("2_vbq17")
 player_node = NodePath(".")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -86)
+position = Vector2(0.5, -5.2)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_1mne1")
 animation = &"wall_slide"
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-4.13436, -83.0026)
+position = Vector2(-3.63436, -2.20259)
 rotation = 0.0191986
 shape = SubResource("RectangleShape2D_14mdo")
 
 [node name="sliding hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(1, -79)
+position = Vector2(1.5, 1.80002)
 rotation = -1.5865
 shape = SubResource("CapsuleShape2D_2ke3x")
 disabled = true
 
 [node name="HurtZone" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-3, -87)
+position = Vector2(-2.5, -6.19999)
 collision_layer = 0
 collision_mask = 2
 
@@ -287,3 +287,8 @@ stream = ExtResource("9_58fq8")
 
 [node name="Jumping" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_o7nr1")
+
+[node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true

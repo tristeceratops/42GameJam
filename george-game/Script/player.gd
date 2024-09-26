@@ -38,11 +38,11 @@ var last_wall_dir = 0 # To track the direction of the last wall jump (left or ri
 var running = false
 var crouching = false
 var run_multiplier = 1
-var projectile_count = 4
+# var projectile_count = 4
 
 var distance_moved = 0.0  # Track total distance moved by the player
 var last_position = Vector2.ZERO  # Last position of the player
-var tile_fall_distance = 0  # Distance the player needs to move for a tile to fall
+# var tile_fall_distance = 0  # Distance the player needs to move for a tile to fall
 var dead = false
 
 @onready var walking_sound = $Walking
@@ -277,14 +277,20 @@ func _physics_process(delta: float) -> void:
 	
 	#print("Player position: ", player.position)
 	
+	var is_overlapHurt = %HurtZone.get_overlapping_areas()
+	for area: Area2D in is_overlapHurt:
+		if area.is_in_group("traps"):
+			print("death")
+			dead = true
+	
 	var movement_delta = abs(player.position.x - last_position.x)
 	distance_moved += movement_delta
 	last_position = player.position
 	#print("Distance moved: ", distance_moved, " | Tile fall distance: ", tile_fall_distance)
 	# Spawn tile after moving tile_fall_distance
-	if distance_moved >= tile_fall_distance:
-		spawn_falling_tile(player)
-		distance_moved = -100  # Reset distance after tile spawns
+#	if distance_moved >= tile_fall_distance:
+#		spawn_falling_tile(player)
+#		distance_moved = -100  # Reset distance after tile spawns
 		
 	dir = Input.get_axis("move_left", "move_right")
 	if dir != 0:
@@ -315,19 +321,19 @@ func _physics_process(delta: float) -> void:
 		dead = true
 	
 	if dead:
-		get_tree().change_scene_to_file("res://resources/last main/death_screen.tscn")
+		get_tree().change_scene_to_file("res://testing stages/death_screen.tscn")
 	if Input.is_action_pressed("RESET"):
 		get_tree().change_scene_to_file("res://resources/last main/starting screen.tscn")
 
 	
 func shoot():
-	if Input.is_action_just_pressed("shoot") and not projectile_count <= 0:
+	if Input.is_action_just_pressed("shoot") and $"%ShootTimer".is_stopped():
 		var instance = projectile.instantiate()
 		instance.dir = rotation
 		instance.spawnPos = global_position
 		instance.spawnRot = rotation
 		$"..".call_deferred("add_child", instance)
-		projectile_count -= 1
+		%ShootTimer.start()
 		
 func death():
 	if position.y >= 10000:
@@ -337,6 +343,6 @@ func death():
 func	 _ready() -> void:
 	player = get_node(player_node)
 	last_position = player.position  # Set the initial position of the player
-	tile_fall_distance = TILE_FALL / LEVEL_NUMBER  # Calculate the fall distance based on the level
+	#tile_fall_distance = TILE_FALL / LEVEL_NUMBER  # Calculate the fall distance based on the level
 	$"normal hitbox".disabled = false
 	$"sliding hitbox".disabled = true

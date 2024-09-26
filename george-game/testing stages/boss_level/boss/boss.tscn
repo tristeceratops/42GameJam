@@ -1,0 +1,142 @@
+[gd_scene load_steps=12 format=3 uid="uid://ckf015ff2jkeh"]
+
+[ext_resource type="Texture2D" uid="uid://bdyi2m072tln1" path="res://testing stages/boss_level/boss/screen.png" id="1_bjxny"]
+[ext_resource type="Texture2D" uid="uid://qpl0s6rtb6vp" path="res://testing stages/boss_level/boss/faces/boss_crazy.png" id="2_2kx5k"]
+[ext_resource type="Texture2D" uid="uid://bgtstxsv3sbrj" path="res://testing stages/boss_level/boss/faces/boss_angry.png" id="3_23nqh"]
+[ext_resource type="Texture2D" uid="uid://q8meuw3lq7rj" path="res://testing stages/boss_level/boss/faces/boss_broken_1.png" id="3_wtnoo"]
+[ext_resource type="Texture2D" uid="uid://b5y7cotf5tpp2" path="res://testing stages/boss_level/boss/faces/boss_broken_2.png" id="4_nbhde"]
+[ext_resource type="Texture2D" uid="uid://d3pkc1q7vjrpt" path="res://testing stages/boss_level/boss/faces/boss_neutral.png" id="4_xk0st"]
+[ext_resource type="Texture2D" uid="uid://o2upip2ktsbs" path="res://testing stages/boss_level/boss/faces/boss_sad.png" id="5_gssky"]
+[ext_resource type="Texture2D" uid="uid://fol6nkj6vc0f" path="res://testing stages/boss_level/boss/faces/boss_whining.png" id="6_kw10n"]
+[ext_resource type="Texture2D" uid="uid://dfpgb1pe18tdr" path="res://testing stages/boss_level/boss/faces/boss_start.png" id="7_cwfjt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yv5tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2kx5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_23nqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xk0st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gssky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kw10n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cwfjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2kx5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_23nqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xk0st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gssky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kw10n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cwfjt")
+}],
+"loop": false,
+"name": &"death",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_cwfjt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_23nqh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_kw10n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gssky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_23nqh")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xk0st")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2kx5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_23nqh")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vox43"]
+size = Vector2(4771.43, 3171.43)
+
+[node name="Body" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bjxny")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_yv5tc")
+
+[node name="ShootingMarker1" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-3071.43, -628.571)
+
+[node name="ShootingMarker2" type="Marker2D" parent="Sprite2D"]
+position = Vector2(-3100, 700)
+
+[node name="ShootingMarker3" type="Marker2D" parent="Sprite2D"]
+position = Vector2(3042.86, -642.857)
+
+[node name="ShootingMarker4" type="Marker2D" parent="Sprite2D"]
+position = Vector2(3028.57, 714.286)
+
+[node name="HurtBox" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
+position = Vector2(5.53472e-05, -4.68322e-05)
+shape = SubResource("RectangleShape2D_vox43")
+debug_color = Color(0.963748, 1.2514e-06, 0.496879, 0.42)
+
+[node name="BossBroken1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1966, 0)
+texture = ExtResource("3_wtnoo")
+
+[node name="BossBroken2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1395, 0)
+texture = ExtResource("4_nbhde")
+
+[node name="BossBroken3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(260, 0)
+texture = ExtResource("3_wtnoo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
