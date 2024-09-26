@@ -5,7 +5,7 @@ extends CharacterBody2D
 
 
 @export var MAX_SPEED = 420.0
-@export var JUMP_VELOCITY = -700.0
+@export var JUMP_VELOCITY = -600.0
 @export var WALL_SLIDE_SPEED = 100.0
 @export var SLIDE_SPEED = 400
 @export var CROUCH_SLOWDOWN = 0.5
@@ -16,7 +16,7 @@ extends CharacterBody2D
 @export var DASH_TIME = 0.2
 @export var idle_delay = 2.5
 
-@export var TILE_FALL = 42  # The base distance at which tiles will fall
+@export var TILE_FALL = -1  #The base distance at which tiles will fall at -1 it is disabled. any number above it is enabled.
 @export var LEVEL_NUMBER = 1  # Current level number (affects fall distance)
 @export var tile_of_death: PackedScene  # The tile scene to be spawned
 @export var player_node: NodePath
@@ -291,13 +291,13 @@ func _physics_process(delta: float) -> void:
 		last_dir = dir
 	if is_on_wall() and not is_on_floor():
 		wall_slide(delta)  # Perform wall sliding
-	elif Input.is_action_pressed("crouch"):
-		crouch_n_slide(delta)  # Handle crouching and sliding
+	#elif Input.is_action_pressed("crouch"):
+		#crouch_n_slide(delta)  # Handle crouching and sliding
 	else:
-		if Input.is_action_pressed("sprint"):
-			run(delta)  # Handle running
-		else:
-			walking(delta)  # Handle walking
+		#if Input.is_action_pressed("sprint"):
+			#run(delta)  # Handle running
+		#else:
+		walking(delta)  # Handle walking
 	jump()
 	dash(delta)
 	apply_gravity(delta)
