@@ -12,6 +12,13 @@ extends CharacterBody2D
 @export var DASH_SPEED = 600
 @export var DASH_TIME = 0.2
 @export var idle_delay = 2.5
+
+@export var TILE_FALL = 42  # The base distance at which tiles will fall
+@export var LEVEL_NUMBER = 1  # Current level number (affects fall distance)
+@export var tile_of_death: PackedScene  # The tile scene to be spawned
+@export var player_node: NodePath
+
+var player
 var idle_timer = 0.0
 const double_jump_modifier = 1.5
 const acceleration = 5
@@ -29,8 +36,20 @@ var running = false
 var crouching = false
 var run_multiplier = 3
 
+var distance_moved = 0.0  # Track total distance moved by the player
+var last_position = Vector2.ZERO  # Last position of the player
+var tile_fall_distance = 0  # Distance the player needs to move for a tile to fall
+
+@onready var walking_sound = $Walking
+@onready var jumping_sound = $Jumping
 
 func walking(delta) -> void:
+	walking_sound.pitch_scale = 1.0 
+	if dir != 0 and not walking_sound.playing:
+		walking_sound.play()  
+
+	if dir == 0:
+		walking_sound.stop()
 	# Accelerate when moving left or right
 	if dir != 0:
 		velocity.x += dir * (MAX_SPEED / acceleration)
@@ -57,6 +76,12 @@ func walking(delta) -> void:
 				$AnimatedSprite2D.play()
 
 func	 run(delta) -> void:
+	walking_sound.pitch_scale = 1.5
+	if dir != 0 and not walking_sound.playing:
+		walking_sound.play()  
+		#running_sound.stop()
+	if dir == 0:
+		walking_sound.stop()
 	if dir != 0 and Input.is_action_pressed("sprint") and not is_on_wall():
 		velocity.x += dir * (MAX_SPEED * run_multiplier / acceleration)
 		velocity.x = clamp(velocity.x, -MAX_SPEED * run_multiplier, MAX_SPEED * run_multiplier)
@@ -80,12 +105,14 @@ func jump() -> void:
 			double_jump = 1  # Reset double jump when landing on the ground
 			last_wall_dir = 0  # Reset wall jump tracking when on the ground
 			print("Jumping from the floor! velocity.y =", velocity.y)
+			jumping_sound.play()
 		# Double jump (in air, not on wall)
 		elif not is_on_floor() and double_jump >= 1 and not is_on_wall():
 			velocity.y = JUMP_VELOCITY / double_jump_modifier
 			double_jump -= 1
 			print("Performing a double jump! velocity.y =", velocity.y)
-
+			jumping_sound.play()
+			
 		# Wall jump (ensure it's a different wall than last jump)
 		elif is_on_wall() and last_dir != last_wall_dir:
 			velocity.y = JUMP_VELOCITY
@@ -93,6 +120,7 @@ func jump() -> void:
 			last_wall_dir = last_dir
 			dir = -dir
 			print("Wall jump! velocity.y =", velocity.y)
+			jumping_sound.play()
 			
 		print("Playing jump animation")
 		$AnimatedSprite2D.animation = "jump"
@@ -182,7 +210,31 @@ func reset_abilities_on_land(delta: float) -> void:
 	if not Input.is_action_pressed("crouch"):
 		slide_time = clamp(slide_time + delta, 0, max_slide_time)
 
+func spawn_falling_tile(player: Node) -> void:
+	var tile = tile_of_death.instantiate()
+	tile.gravity = GRAVITY * 5
+	# Set the spawn position for the falling tile
+	var spawn_position = Vector2(last_position.x, player.position.y - 200)  # Spawn above the player
+	tile.position = spawn_position
+	
+	# Add the tile to the scene
+	get_parent().add_child(tile)
+	tile.set_player(player)
+
 func _physics_process(delta: float) -> void:
+	# Track the distance moved
+	
+	print("Player position: ", player.position)
+	
+	var movement_delta = abs(player.position.x - last_position.x)
+	distance_moved += movement_delta
+	last_position = player.position
+	print("Distance moved: ", distance_moved, " | Tile fall distance: ", tile_fall_distance)
+	# Spawn tile after moving tile_fall_distance
+	if distance_moved >= tile_fall_distance:
+		spawn_falling_tile(player)
+		distance_moved = 0  # Reset distance after tile spawns
+		
 	dir = Input.get_axis("move_left", "move_right")
 	if dir != 0:
 		last_dir = dir
@@ -204,6 +256,10 @@ func _physics_process(delta: float) -> void:
 	if velocity.x == 0 and velocity.y == 0 and is_on_floor():
 			$AnimatedSprite2D.stop()
 
+	
 func	 _ready() -> void:
+	player = get_node(player_node)
+	last_position = player.position  # Set the initial position of the player
+	tile_fall_distance = TILE_FALL / LEVEL_NUMBER  # Calculate the fall distance based on the level
 	$"normal hitbox".disabled = false
 	$"sliding hitbox".disabled = true

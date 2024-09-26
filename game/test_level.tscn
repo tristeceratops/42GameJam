@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://gcb2g4tu85lm"]
+[gd_scene load_steps=8 format=3 uid="uid://gcb2g4tu85lm"]
 
 [ext_resource type="PackedScene" uid="uid://drtd01r1rdsgi" path="res://player.tscn" id="1_dvh50"]
+[ext_resource type="Script" path="res://Scripts/test_level.gd" id="1_g7l7i"]
 [ext_resource type="Texture2D" uid="uid://de8vj04l3qjct" path="res://level_test/big_set_0.png" id="1_rtdly"]
+[ext_resource type="PackedScene" uid="uid://boubk1frc4t3d" path="res://timer_canvas.tscn" id="3_xo02j"]
+[ext_resource type="AudioStream" uid="uid://duv8svqd6iucd" path="res://sounds/03_racing_through_asteroids_intro.mp3" id="5_qvxed"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yoaqy"]
 texture = ExtResource("1_rtdly")
@@ -96,13 +99,20 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yoaqy")
 
 [node name="test_level" type="Node2D"]
+script = ExtResource("1_g7l7i")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nbovc")
 format = 2
 layer_0/tile_data = PackedInt32Array(327679, 0, 0, 262149, 0, 0, 262155, 0, 0, 262161, 0, 0, 262167, 0, 0, 262173, 0, 0, 262179, 0, 0, 262185, 0, 0, 262191, 0, 0, 262197, 0, 0, -131019, 0, 0, 262203, 0, 0, 262209, 0, 0, 262215, 0, 0, 262221, 0, 0, -130995, 0, 0, -524211, 0, 0, -917427, 0, 0, -1310643, 0, 0, -917438, 0, 0, -524222, 0, 0, -917444, 0, 0, -917450, 0, 0, 720895, 0, 0, 655365, 0, 0, 655371, 0, 0, 655377, 0, 0, 655383, 0, 0, 655389, 0, 0, 655395, 0, 0, 655401, 0, 0, 655407, 0, 0, 655413, 0, 0, 655419, 0, 0, 655425, 0, 0, 655431, 0, 0, 655437, 0, 0, -1703859, 0, 0, -2097075, 0, 0, -1310666, 0, 0, -1703888, 0, 0, -1310672, 0, 0, -1703894, 0, 0, -1703900, 0, 0, -1703906, 0, 0, -1703912, 0, 0, -2097128, 0, 0, -2490344, 0, 0, -2883560, 0, 0, -3276776, 0, 0, -2490334, 0, 0, -2490328, 0, 0, -2490322, 0, 0, -2490316, 0, 0, -2490310, 0, 0)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_dvh50")]
+[node name="Player" parent="." instance=ExtResource("1_dvh50")]
 position = Vector2(41, 50)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="TimerCanvas" parent="." instance=ExtResource("3_xo02j")]
+
+[node name="Background" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qvxed")
+autoplay = true

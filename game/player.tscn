@@ -1,13 +1,16 @@
-[gd_scene load_steps=32 format=3 uid="uid://drtd01r1rdsgi"]
+[gd_scene load_steps=35 format=3 uid="uid://drtd01r1rdsgi"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bx7vc"]
 [ext_resource type="Texture2D" uid="uid://dpbbno371fl3d" path="res://Graphics/leap.png" id="1_dhdow"]
 [ext_resource type="Texture2D" uid="uid://c1v1x6rkheabf" path="res://Graphics/naruto_run.png" id="2_6g1ce"]
+[ext_resource type="PackedScene" uid="uid://cmtlv7pmqfiil" path="res://tile_of_death.tscn" id="2_ahn4r"]
 [ext_resource type="Texture2D" uid="uid://cdmewvwo22hq2" path="res://Graphics/slide.png" id="3_occ1m"]
 [ext_resource type="Texture2D" uid="uid://711gb8v7gw7v" path="res://Graphics/throw.png" id="4_nxhpw"]
 [ext_resource type="Texture2D" uid="uid://cxnvy2b82ohmx" path="res://Graphics/random.png" id="5_a607m"]
 [ext_resource type="Texture2D" uid="uid://b4bxdbuvh71ds" path="res://Graphics/power_walk.png" id="6_vr30r"]
 [ext_resource type="Texture2D" uid="uid://cgqwx8ajxfkrx" path="res://Graphics/wall_jump.png" id="7_f1fce"]
+[ext_resource type="AudioStream" uid="uid://b2lx2aoeci0r3" path="res://sounds/754784__evanboyerman__walk-footstep-with-clothing-foley-3-hard-floorwooden_new.mp3" id="10_2jo3b"]
+[ext_resource type="AudioStream" uid="uid://b4owiu8y7lxh1" path="res://sounds/final_sound_jump_mix_of_sounds.mp3" id="11_5dovk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_det4y"]
 atlas = ExtResource("5_a607m")
@@ -200,9 +203,12 @@ height = 59.9889
 radius = 15.9823
 height = 57.8986
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(3, 30)
 script = ExtResource("1_bx7vc")
+TILE_FALL = 420
+tile_of_death = ExtResource("2_ahn4r")
+player_node = NodePath(".")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -220,3 +226,10 @@ shape = SubResource("CapsuleShape2D_ljsjo")
 position = Vector2(1, -79)
 rotation = -1.5865
 shape = SubResource("CapsuleShape2D_2ke3x")
+
+[node name="Walking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_2jo3b")
+parameters/looping = true
+
+[node name="Jumping" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_5dovk")

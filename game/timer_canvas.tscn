@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://boubk1frc4t3d"]
+
+[ext_resource type="Script" path="res://Scripts/timer_canvas.gd" id="1_38hgj"]
+[ext_resource type="FontFile" uid="uid://df5j1oh8glna0" path="res://fonts/Xolonium-Regular.ttf" id="2_egob3"]
+[ext_resource type="AudioStream" uid="uid://dxy0blh0k3g8n" path="res://sounds/game_over.mp3" id="3_t4rrb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ke7r0"]
+font = ExtResource("2_egob3")
+font_size = 40
+font_color = Color(0.552682, 0.452776, 0.220428, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y0bcd"]
+font = ExtResource("2_egob3")
+font_size = 200
+font_color = Color(0.49084, 0.0146149, 0, 1)
+outline_size = 5
+outline_color = Color(0.227451, 0, 0.0313726, 1)
+shadow_color = Color(0.152194, 0.0464211, 0.0980598, 0)
+
+[node name="TimerCanvas" type="CanvasLayer"]
+script = ExtResource("1_38hgj")
+
+[node name="Countdown_timer" type="Timer" parent="."]
+
+[node name="Countdown_label" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 49.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_ke7r0")
+horizontal_alignment = 2
+
+[node name="YouDiedLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_y0bcd")
+
+[node name="Gameover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_t4rrb")

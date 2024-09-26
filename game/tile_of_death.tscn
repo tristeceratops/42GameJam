@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmtlv7pmqfiil"]
+
+[ext_resource type="Script" path="res://Scripts/tile_of_death.gd" id="1_n6juw"]
+[ext_resource type="Texture2D" uid="uid://bf52fo6p1gd1x" path="res://Graphics/logo.png" id="1_yg7no"]
+[ext_resource type="FontFile" uid="uid://df5j1oh8glna0" path="res://fonts/Xolonium-Regular.ttf" id="3_58j2i"]
+[ext_resource type="AudioStream" uid="uid://dxy0blh0k3g8n" path="res://sounds/game_over.mp3" id="4_lns2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fg48"]
+atlas = ExtResource("1_yg7no")
+region = Rect2(0, 0, 400, 378)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rj4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fg48")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fr7bu"]
+height = 58.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_dedeb"]
+font = ExtResource("3_58j2i")
+font_size = 200
+font_color = Color(0.49084, 0.0146149, 0, 1)
+outline_size = 5
+outline_color = Color(0.227451, 0, 0.0313726, 1)
+shadow_color = Color(0.152194, 0.0464211, 0.0980598, 0)
+
+[node name="death_tile" type="CharacterBody2D"]
+script = ExtResource("1_n6juw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_6rj4q")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_fr7bu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="YouDiedLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+label_settings = SubResource("LabelSettings_dedeb")
+
+[node name="Gameover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_lns2b")
