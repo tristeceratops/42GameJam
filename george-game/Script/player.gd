@@ -37,7 +37,7 @@ var WJ_pushback = 420
 var last_wall_dir = 0 # To track the direction of the last wall jump (left or right)
 var running = false
 var crouching = false
-var run_multiplier = 3
+var run_multiplier = 1
 var projectile_count = 4
 
 var distance_moved = 0.0  # Track total distance moved by the player
