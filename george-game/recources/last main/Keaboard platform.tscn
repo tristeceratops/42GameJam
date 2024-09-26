@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcysfr6mynkth"]
+
+[ext_resource type="Script" path="res://scripts/temporary_block.gd" id="1_ij4yl"]
+[ext_resource type="Texture2D" uid="uid://dddqab5x1mif4" path="res://art/copper_block.png" id="1_rf5m4"]
+
+[sub_resource type="GDScript" id="GDScript_gcm3j"]
+script/source = "extends Area2D
+
+# Variables to track state
+var is_platform = false
+
+# Called when the node enters the scene tree for the first time
+func _ready():
+	# Connect Area2D's \"body_entered\" signal to detect collisions with projectiles
+	pass
+
+
+
+
+# Function to turn the character into a platform
+func turn_into_platform():
+	if is_platform:
+		$\"../Node2D/StaticBody2D/CollisionShape2D\".disabled = false
+		$\"../Node2D\".visible = true
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_osai8"]
+radius = 26.0192
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63g40"]
+size = Vector2(66, 18)
+
+[node name="keaboardplatform" type="CharacterBody2D"]
+script = ExtResource("1_ij4yl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rf5m4")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_gcm3j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_osai8")
+
+[node name="keaboard platform" type="CollisionShape2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_63g40")
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
