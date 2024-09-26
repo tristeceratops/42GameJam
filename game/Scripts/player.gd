@@ -45,10 +45,10 @@ var tile_fall_distance = 0  # Distance the player needs to move for a tile to fa
 
 func walking(delta) -> void:
 	walking_sound.pitch_scale = 1.0 
-	if dir != 0 and not walking_sound.playing:
+	if dir != 0 and is_on_floor() == true and not walking_sound.playing:
 		walking_sound.play()  
 
-	if dir == 0:
+	if dir == 0 or not is_on_floor():
 		walking_sound.stop()
 	# Accelerate when moving left or right
 	if dir != 0:
@@ -77,10 +77,10 @@ func walking(delta) -> void:
 
 func	 run(delta) -> void:
 	walking_sound.pitch_scale = 1.5
-	if dir != 0 and not walking_sound.playing:
+	if dir != 0 and is_on_floor() == true and not walking_sound.playing:
 		walking_sound.play()  
-		#running_sound.stop()
-	if dir == 0:
+		
+	if dir == 0 or not is_on_floor():
 		walking_sound.stop()
 	if dir != 0 and Input.is_action_pressed("sprint") and not is_on_wall():
 		velocity.x += dir * (MAX_SPEED * run_multiplier / acceleration)
