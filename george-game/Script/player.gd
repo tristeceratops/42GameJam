@@ -57,6 +57,8 @@ func walking(delta) -> void:
 		walking_sound.stop()
 	# Accelerate when moving left or right
 	if dir != 0:
+		if not is_on_floor():
+			velocity.x /= 1.5
 		velocity.x += dir * (MAX_SPEED / acceleration)
 		# Clamp the velocity to max speed when not running
 		if not Input.is_action_pressed("sprint"):
