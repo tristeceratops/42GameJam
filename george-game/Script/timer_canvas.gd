@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var initial_time: int = 1  # Starting time for the countdown
+@export var initial_time: int = 42  # Starting time for the countdown
 @onready var game_over = $Gameover
 var time_to_die = 0
 var current_time: int = 0  # Tracks remaining time
