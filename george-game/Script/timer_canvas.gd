@@ -1,10 +1,14 @@
 extends CanvasLayer
 
-@export var initial_time: int = 42  # Starting time for the countdown
+@export var initial_time: int = 1  # Starting time for the countdown
 @onready var game_over = $Gameover
+var time_to_die = 0
 var current_time: int = 0  # Tracks remaining time
 signal time_ran_out  # Signal emitted when time reaches zero
 signal rush
+
+func wait(seconds: float) -> void:
+	await get_tree().create_timer(seconds).timeout
 
 func _ready() -> void:
 	current_time = initial_time  # Initialize the current time
@@ -26,3 +30,5 @@ func _on_countdown_timeout() -> void:
 		game_over.play()
 		emit_signal("time_ran_out")  # Emit signal when time reaches zero
 		$Countdown_timer.stop()  # Stop the timer
+		await get_tree().create_timer(2.5).timeout
+		get_tree().change_scene_to_file("res://recource/death_screen.tscn")
