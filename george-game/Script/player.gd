@@ -334,7 +334,7 @@ func _physics_process(delta: float) -> void:
 	if dead:
 		get_tree().change_scene_to_file("res://testing stages/death_screen.tscn")
 	if Input.is_action_pressed("RESET"):
-		get_tree().change_scene_to_file("res://resources/last main/starting screen.tscn")
+		get_tree().change_scene_to_file("res://recource/starting screen.tscn")
 
 	
 func shoot():
