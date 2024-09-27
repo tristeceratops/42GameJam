@@ -519,7 +519,7 @@ tile_set = SubResource("TileSet_lpg0q")
 [node name="TimerCanvas" parent="." instance=ExtResource("2_1400l")]
 
 [node name="player_node" parent="." instance=ExtResource("3_ew1i3")]
-position = Vector2(1086, -20)
+position = Vector2(1768, 2328)
 JUMP_VELOCITY = -650.0
 
 [node name="Camera2D" type="Camera2D" parent="player_node"]
@@ -600,6 +600,36 @@ tile_set = SubResource("TileSet_j6q7x")
 visible = false
 tile_map_data = PackedByteArray("AAD9//7/AAAEAAMAAAD9////AAAEAAMAAAD9/wAAAAAEAAMAAAD9/wEAAAAEAAMAAAD+//7/AAAEAAMAAAD+////AAAEAAMAAAD+/wAAAAAEAAMAAAD+/wEAAAAEAAMAAAD///7/AAAEAAMAAAD/////AAAEAAMAAAD//wAAAAAEAAMAAAD//wEAAAAEAAMAAAAAAP7/AAAEAAMAAAAAAP//AAAEAAMAAAAAAAAAAAAEAAMAAAAAAAEAAAAEAAMAAAA=")
 tile_set = SubResource("TileSet_j6q7x")
+
+[node name="LavaArea2D2" type="Area2D" parent="." groups=["traps"]]
+position = Vector2(520, 2896)
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="LavaArea2D2"]
+position = Vector2(1296, 44)
+shape = SubResource("RectangleShape2D_ncv37")
+debug_color = Color(0.878411, 0.298254, 0.432637, 0.42)
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="LavaArea2D2"]
+position = Vector2(1632, 44)
+shape = SubResource("RectangleShape2D_ncv37")
+debug_color = Color(0.878411, 0.298254, 0.432637, 0.42)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LavaArea2D2"]
+position = Vector2(864, 40)
+shape = SubResource("RectangleShape2D_ncv37")
+debug_color = Color(0.878411, 0.298254, 0.432637, 0.42)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LavaArea2D2"]
+position = Vector2(424, 48)
+shape = SubResource("RectangleShape2D_ncv37")
+debug_color = Color(0.878411, 0.298254, 0.432637, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LavaArea2D2"]
+position = Vector2(-10.5, 43.5)
+shape = SubResource("RectangleShape2D_ncv37")
+debug_color = Color(0.878411, 0.298254, 0.432637, 0.42)
 
 [node name="LavaArea2D" type="Area2D" parent="." groups=["traps"]]
 position = Vector2(1549, 78)
