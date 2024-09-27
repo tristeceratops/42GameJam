@@ -26,9 +26,18 @@ offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Button2" type="Button" parent="Button"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 208.0
+offset_right = 430.0
+offset_bottom = 242.0
+text = "Credits"
+
 [node name="Sprite2D" type="Sprite2D" parent="Button"]
 position = Vector2(209, 42)
 scale = Vector2(0.500508, 0.353572)
 texture = ExtResource("2_u8bec")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button/Button2" to="." method="_on_button_2_pressed"]

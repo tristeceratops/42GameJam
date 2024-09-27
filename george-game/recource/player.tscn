@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://6as4jbekq0c3"]
+[gd_scene load_steps=42 format=3 uid="uid://6as4jbekq0c3"]
 
 [ext_resource type="Script" path="res://Script/player.gd" id="1_7w102"]
 [ext_resource type="Texture2D" uid="uid://dpbbno371fl3d" path="res://art/raja new game/leap.png" id="1_dhdow"]
@@ -272,6 +272,13 @@ height = 57.8986
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yw1tt"]
 size = Vector2(13, 41)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cqoe4"]
+bg_color = Color(0.101491, 0.637907, 0.9327, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [node name="player_node" type="CharacterBody2D" groups=["player"]]
 position = Vector2(0, -1)
 floor_constant_speed = true
@@ -318,5 +325,16 @@ stream = ExtResource("10_o7nr1")
 
 [node name="ShootTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 4.0
+wait_time = 2.5
 one_shot = true
+
+[node name="ProgressBarShoot" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+visible = false
+offset_left = -14.0
+offset_top = -37.0
+offset_right = 14.0
+offset_bottom = -33.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cqoe4")
+step = 0.0
+show_percentage = false

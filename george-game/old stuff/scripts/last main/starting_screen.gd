@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func _on_button_pressed() -> void:
 	print("Button Pressed!")  
-	random_level()# Debug: Check if the button press is detected
+	get_tree().change_scene_to_file("res://level/level_thomas.tscn")# Debug: Check if the button press is detected
 		# Get all files in the folder
 	
 func random_level():
@@ -51,3 +51,7 @@ func random_level():
 			print("No scenes found in the folder!")
 	else:
 		print("Failed to open directory: " + scene_folder_path)
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://recource/credit.tscn")

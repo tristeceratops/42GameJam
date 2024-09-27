@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cratt5wfcovvp"]
+
+[sub_resource type="GDScript" id="GDScript_ndeq5"]
+script/source = "extends Node2D
+
+
+@export var next_level : String = \"res://level/level_raja.tscn\"
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		get_tree().change_scene_to_file(next_level)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4vs7x"]
+size = Vector2(10, 43)
+
+[node name="loading zone" type="Node2D"]
+script = SubResource("GDScript_ndeq5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, 11.5)
+shape = SubResource("RectangleShape2D_4vs7x")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

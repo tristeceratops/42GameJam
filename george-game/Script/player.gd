@@ -272,6 +272,17 @@ func spawn_falling_tile(player: Node) -> void:
 		get_parent().add_child(tile)
 		tile.set_player(player)
 
+func _process(delta):
+	if $ShootTimer.is_stopped():
+		%ProgressBarShoot.value = 0
+		%ProgressBarShoot.visible = false
+	else:
+		# Update the progress bar based on the timer's remaining time
+		if %ProgressBarShoot.visible == false:
+			%ProgressBarShoot.visible = true
+		var progress = 1.0 - ($ShootTimer.time_left / $ShootTimer.wait_time)
+		%ProgressBarShoot.value = progress * 100
+
 func _physics_process(delta: float) -> void:
 	# Track the distance moved
 	if dead:
@@ -332,7 +343,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.stop()
 		get_tree().change_scene_to_file("res://testing stages/death_screen.tscn")
 	if Input.is_action_pressed("RESET"):
-		get_tree().change_scene_to_file("res://resources/last main/starting screen.tscn")
+		get_tree().change_scene_to_file("res://recource/starting screen.tscn")
 
 	
 func shoot():
