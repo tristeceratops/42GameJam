@@ -9,8 +9,6 @@ var RANGE = 800
 var DEAD = false
 
 func _ready():
-	var timer = get_node("Timer")
-	timer.start()
 	
 	var hurt_area = get_node("Sprite2D/HurtBox")
 	var anim_sprite = get_node("Sprite2D/AnimatedSprite2D")
@@ -19,6 +17,8 @@ func _ready():
 
 func combat():
 	print("combat")
+	var timer = get_node("Timer")
+	timer.start()
 	get_node("Sprite2D/AnimatedSprite2D").play("default")
 	shoot()
 
@@ -50,6 +50,7 @@ func shoot():
 
 func _on_timer_timeout() -> void:
 	if !DEAD:
+		print("boss timer end")
 		shoot()
 
 func _on_boss_camera_area_area_exited(area: Area2D) -> void:
@@ -77,7 +78,9 @@ func _on_HurtArea_area_entered(area: Area2D) -> void:
 			print("Boss defeated")
 
 func _on_AnimatedSprite_animation_finished() -> void:
-	if get_node("Sprite2D/AnimatedSprite2D").animation == "die":
+	print("VICTORY")
+	print(get_node("Sprite2D/AnimatedSprite2D").animation)
+	if get_node("Sprite2D/AnimatedSprite2D").animation == "death":
 		print("VICTORY")
 		#queue_free()  # does not work
 		 # Call victory scene
