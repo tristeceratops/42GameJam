@@ -1,14 +1,16 @@
-[gd_scene load_steps=41 format=3 uid="uid://6as4jbekq0c3"]
+[gd_scene load_steps=46 format=3 uid="uid://6as4jbekq0c3"]
 
 [ext_resource type="Script" path="res://Script/player.gd" id="1_7w102"]
 [ext_resource type="Texture2D" uid="uid://dpbbno371fl3d" path="res://art/raja new game/leap.png" id="1_dhdow"]
 [ext_resource type="Texture2D" uid="uid://c1v1x6rkheabf" path="res://art/raja new game/naruto_run.png" id="2_6g1ce"]
 [ext_resource type="PackedScene" uid="uid://drpy6d5c2sldl" path="res://testing stages/death_screen.tscn" id="2_vbq17"]
 [ext_resource type="Texture2D" uid="uid://cdmewvwo22hq2" path="res://art/raja new game/slide.png" id="3_occ1m"]
+[ext_resource type="Texture2D" path="/home/ldublin/goinfre/42GameJam/george-game/art/death.png" id="4_fv8qg"]
 [ext_resource type="Texture2D" uid="uid://711gb8v7gw7v" path="res://art/raja new game/throw.png" id="4_nxhpw"]
 [ext_resource type="Texture2D" uid="uid://cxnvy2b82ohmx" path="res://art/raja new game/random.png" id="5_a607m"]
 [ext_resource type="Texture2D" uid="uid://b4bxdbuvh71ds" path="res://art/raja new game/power_walk.png" id="6_vr30r"]
 [ext_resource type="Texture2D" uid="uid://cgqwx8ajxfkrx" path="res://art/raja new game/wall_jump.png" id="7_f1fce"]
+[ext_resource type="Texture2D" path="/home/ldublin/goinfre/42GameJam/george-game/art/throw2.png" id="8_36lh4"]
 [ext_resource type="AudioStream" uid="uid://b2lx2aoeci0r3" path="res://sounds/754784__evanboyerman__walk-footstep-with-clothing-foley-3-hard-floorwooden_new.mp3" id="9_58fq8"]
 [ext_resource type="Texture2D" uid="uid://cjmt357oxrfpm" path="res://art/wall_slide.webp" id="10_1x6c5"]
 [ext_resource type="AudioStream" uid="uid://b4owiu8y7lxh1" path="res://sounds/final_sound_jump_mix_of_sounds.mp3" id="10_o7nr1"]
@@ -16,6 +18,18 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_det4y"]
 atlas = ExtResource("5_a607m")
 region = Rect2(166, 0, 166, 238)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwkhe"]
+atlas = ExtResource("4_fv8qg")
+region = Rect2(0, 0, 133, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycs4m"]
+atlas = ExtResource("4_fv8qg")
+region = Rect2(261, 0, 228, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qoj8m"]
+atlas = ExtResource("4_fv8qg")
+region = Rect2(595, 153, 250, 97)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jgrrr"]
 atlas = ExtResource("5_a607m")
@@ -61,13 +75,13 @@ region = Rect2(275, 0, 275, 232)
 atlas = ExtResource("5_a607m")
 region = Rect2(0, 0, 128, 238)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4pxec"]
-atlas = ExtResource("4_nxhpw")
-region = Rect2(0, 0, 174, 250)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc074"]
+atlas = ExtResource("8_36lh4")
+region = Rect2(0, 0, 171, 255)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xqvp1"]
-atlas = ExtResource("4_nxhpw")
-region = Rect2(174, 0, 174, 250)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqmpf"]
+atlas = ExtResource("8_36lh4")
+region = Rect2(227, 0, 150, 255)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mx5s"]
 atlas = ExtResource("4_nxhpw")
@@ -117,6 +131,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.01,
+"texture": SubResource("AtlasTexture_nwkhe")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ycs4m")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_qoj8m")
+}],
+"loop": false,
+"name": &"die",
 "speed": 5.0
 }, {
 "frames": [{
@@ -179,15 +207,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4pxec")
+"texture": SubResource("AtlasTexture_cc074")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xqvp1")
+"texture": SubResource("AtlasTexture_vqmpf")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5mx5s")
 }],
-"loop": true,
+"loop": false,
 "name": &"throw",
 "speed": 5.0
 }, {
@@ -258,7 +286,7 @@ metadata/_edit_group_ = true
 position = Vector2(0.5, -5.2)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_1mne1")
-animation = &"stand"
+animation = &"throw"
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0.146702, -2.64038)

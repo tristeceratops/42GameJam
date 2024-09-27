@@ -274,7 +274,11 @@ func spawn_falling_tile(player: Node) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Track the distance moved
-	
+	if dead:
+		if !is_on_floor():
+			position.y += 1
+		apply_gravity(delta)
+		return
 	#print("Player position: ", player.position)
 	
 	var is_overlapHurt = %HurtZone.get_overlapping_areas()
@@ -282,7 +286,7 @@ func _physics_process(delta: float) -> void:
 		if area.is_in_group("traps"):
 			print("death")
 			dead = true
-	
+
 	var movement_delta = abs(player.position.x - last_position.x)
 	distance_moved += movement_delta
 	last_position = player.position
@@ -321,6 +325,11 @@ func _physics_process(delta: float) -> void:
 		dead = true
 	
 	if dead:
+		$AnimatedSprite2D.animation = "die"
+		position.y += 15
+		$AnimatedSprite2D.play()
+		await get_tree().create_timer(1).timeout
+		$AnimatedSprite2D.stop()
 		get_tree().change_scene_to_file("res://testing stages/death_screen.tscn")
 	if Input.is_action_pressed("RESET"):
 		get_tree().change_scene_to_file("res://resources/last main/starting screen.tscn")
@@ -328,13 +337,18 @@ func _physics_process(delta: float) -> void:
 	
 func shoot():
 	if Input.is_action_just_pressed("shoot") and $"%ShootTimer".is_stopped():
+		
+		$AnimatedSprite2D.animation = "throw"
+		$AnimatedSprite2D.play()
 		var instance = projectile.instantiate()
 		instance.dir = rotation
 		instance.spawnPos = global_position
 		instance.spawnRot = rotation
 		$"..".call_deferred("add_child", instance)
 		%ShootTimer.start()
-		
+		$AnimatedSprite2D.animation = "stand"
+		$AnimatedSprite2D.play()
+
 func death():
 	if position.y >= 10000:
 		dead = true
