@@ -1,0 +1,93 @@
+[gd_scene load_steps=17 format=3 uid="uid://b4mdlkwyh8tdx"]
+
+[ext_resource type="Script" path="res://testing stages/boss_level/boss/boss_project.gd" id="1_xup3w"]
+[ext_resource type="Texture2D" uid="uid://byygxs2uw060o" path="res://testing stages/boss_level/boss/Numbers/0_g.png" id="1_ytb7f"]
+[ext_resource type="Texture2D" uid="uid://jj8vca21kkes" path="res://testing stages/boss_level/boss/Numbers/0_o.png" id="2_0j2vr"]
+[ext_resource type="Texture2D" uid="uid://cn3srenu0ceht" path="res://testing stages/boss_level/boss/Numbers/0_r.png" id="3_m2qd7"]
+[ext_resource type="Texture2D" uid="uid://4b4aj3vqt4sx" path="res://testing stages/boss_level/boss/Numbers/0_v.png" id="4_pq8mc"]
+[ext_resource type="Texture2D" uid="uid://dbk4ytqwq5os2" path="res://testing stages/boss_level/boss/Numbers/0_w.png" id="5_rxsf0"]
+[ext_resource type="Texture2D" uid="uid://217u6enk0h17" path="res://testing stages/boss_level/boss/Numbers/0_y.png" id="6_qtin7"]
+[ext_resource type="Texture2D" uid="uid://bffwkknoe3qtx" path="res://testing stages/boss_level/boss/Numbers/1_g.png" id="7_sivwk"]
+[ext_resource type="Texture2D" uid="uid://cfn53ujqxq3f2" path="res://testing stages/boss_level/boss/Numbers/1_o.png" id="8_nfuob"]
+[ext_resource type="Texture2D" uid="uid://m632htbe1f0k" path="res://testing stages/boss_level/boss/Numbers/1_r.png" id="9_v51l1"]
+[ext_resource type="Texture2D" uid="uid://b0wvkslv4q0ha" path="res://testing stages/boss_level/boss/Numbers/1_v.png" id="10_oj40h"]
+[ext_resource type="Texture2D" uid="uid://cxqxd36bwusxi" path="res://testing stages/boss_level/boss/Numbers/1_w.png" id="11_tamlx"]
+[ext_resource type="Texture2D" uid="uid://crg5pqn35wgsc" path="res://testing stages/boss_level/boss/Numbers/1_y.png" id="12_fbgi2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alm4u"]
+size = Vector2(34, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mf2x"]
+size = Vector2(10, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1316a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ytb7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0j2vr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m2qd7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pq8mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rxsf0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qtin7")
+}],
+"loop": true,
+"name": &"0_proj",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_sivwk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nfuob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_v51l1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_oj40h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_tamlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fbgi2")
+}],
+"loop": true,
+"name": &"1_proj",
+"speed": 2.0
+}]
+
+[node name="AnimatedSprite2D" type="CharacterBody2D" groups=["traps"]]
+script = ExtResource("1_xup3w")
+
+[node name="area_0" type="Area2D" parent="." groups=["traps"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D_0" type="CollisionShape2D" parent="area_0"]
+shape = SubResource("RectangleShape2D_alm4u")
+debug_color = Color(0.967583, 0, 0.473338, 0.42)
+
+[node name="area_1" type="Area2D" parent="." groups=["traps"]]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="area_1"]
+shape = SubResource("RectangleShape2D_8mf2x")
+debug_color = Color(0.271673, 0.519064, 0.94681, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1316a")
+animation = &"1_proj"

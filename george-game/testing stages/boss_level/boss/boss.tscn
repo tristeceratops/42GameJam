@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ckf015ff2jkeh"]
+[gd_scene load_steps=15 format=3 uid="uid://ckf015ff2jkeh"]
 
 [ext_resource type="Texture2D" uid="uid://bdyi2m072tln1" path="res://testing stages/boss_level/boss/screen.png" id="1_bjxny"]
 [ext_resource type="Texture2D" uid="uid://qpl0s6rtb6vp" path="res://testing stages/boss_level/boss/faces/boss_crazy.png" id="2_2kx5k"]
@@ -60,7 +60,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_23nqh")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 1.0
 }, {
@@ -88,7 +88,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_23nqh")
 }],
-"loop": true,
+"loop": false,
 "name": &"shoot",
 "speed": 5.0
 }]
@@ -96,13 +96,28 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vox43"]
 size = Vector2(4771.43, 3171.43)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh3l2"]
+size = Vector2(4770, 3167)
+
+[sub_resource type="Gradient" id="Gradient_e1cy2"]
+offsets = PackedFloat32Array(0.154762, 0.767857)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_scxwc"]
+gradient = SubResource("Gradient_e1cy2")
+fill = 1
+fill_from = Vector2(0.487069, 0.491379)
+
 [node name="Body" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_bjxny")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_yv5tc")
+animation = &"death"
 
 [node name="ShootingMarker1" type="Marker2D" parent="Sprite2D"]
 position = Vector2(-3071.43, -628.571)
@@ -117,6 +132,8 @@ position = Vector2(3042.86, -642.857)
 position = Vector2(3028.57, 714.286)
 
 [node name="HurtBox" type="Area2D" parent="Sprite2D"]
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/HurtBox"]
 position = Vector2(5.53472e-05, -4.68322e-05)
@@ -138,5 +155,11 @@ visible = false
 position = Vector2(260, 0)
 texture = ExtResource("3_wtnoo")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -4.5)
+shape = SubResource("RectangleShape2D_yh3l2")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.50017, -10.4999)
+scale = Vector2(79.8594, 54.7031)
+texture = SubResource("GradientTexture2D_scxwc")
