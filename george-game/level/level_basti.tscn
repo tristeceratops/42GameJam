@@ -68,7 +68,7 @@ polygon = PackedVector2Array(-16, -16, 16, 16, 16, 16, -16, 16)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xcscu"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, -16, -16, 16)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58afe"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lyxe0"]
 texture = ExtResource("1_cnvqb")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -168,7 +168,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_58afe")
+sources/0 = SubResource("TileSetAtlasSource_lyxe0")
 
 [node name="Level Basti" type="Node2D"]
 
@@ -198,7 +198,7 @@ tile_map_data = PackedByteArray("AAD9//7/AAAEAAMAAAD9////AAAEAAMAAAD9/wAAAAAEAAM
 tile_set = SubResource("TileSet_tg2ut")
 
 [node name="player_node" parent="." instance=ExtResource("4_p1644")]
-position = Vector2(191, 318)
+position = Vector2(966, -2099)
 JUMP_VELOCITY = -650.0
 
 [node name="Camera2D" type="Camera2D" parent="player_node"]

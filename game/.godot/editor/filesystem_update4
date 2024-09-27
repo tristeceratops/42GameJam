@@ -1,0 +1,9 @@
+res://test_level.tscn
+res://Scripts/tile_of_death.gd
+res://player.tscn
+res://tile_of_death.tscn
+res://Scripts/player.gd
+res://Scripts/canvas_layer.gd
+res://Scripts/timer_canvas.gd
+res://timer_canvas.tscn
+res://Scripts/test_level.gd

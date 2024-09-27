@@ -1,0 +1,12 @@
+AudioStreamPlayer2D
+AudioStreamPlayer
+Label
+Timer
+CanvasLayer
+CollisionShape2D
+AnimatedSprite2D
+Sprite2D
+CharacterBody2D
+Camera2D
+TileMap
+Node2D
