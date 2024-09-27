@@ -217,6 +217,7 @@ texture = SubResource("GradientTexture2D_1tavo")
 [node name="PointLight2D2" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(-6, 8)
 scale = Vector2(0.140625, 0.226563)
+enabled = false
 color = Color(0.321727, 0.80146, 0.668336, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1tavo")
@@ -224,6 +225,7 @@ texture = SubResource("GradientTexture2D_1tavo")
 [node name="PointLight2D3" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(2, 34)
 scale = Vector2(0.226563, 0.195312)
+enabled = false
 color = Color(0.321727, 0.80146, 0.668336, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1tavo")
@@ -231,6 +233,7 @@ texture = SubResource("GradientTexture2D_1tavo")
 [node name="PointLight2D4" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(1, -10)
 scale = Vector2(0.140625, 0.140625)
+enabled = false
 color = Color(0.321727, 0.80146, 0.668336, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1tavo")
@@ -238,6 +241,7 @@ texture = SubResource("GradientTexture2D_1tavo")
 [node name="PointLight2D5" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(4, 8)
 scale = Vector2(0.140625, 0.140625)
+enabled = false
 color = Color(0.321727, 0.80146, 0.668336, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1tavo")
@@ -245,6 +249,7 @@ texture = SubResource("GradientTexture2D_1tavo")
 [node name="PointLight2D6" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(-8, 23)
 scale = Vector2(0.101563, 0.101562)
+enabled = false
 color = Color(0.321727, 0.80146, 0.668336, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1tavo")
@@ -252,6 +257,7 @@ texture = SubResource("GradientTexture2D_1tavo")
 [node name="PointLight2D7" type="PointLight2D" parent="Sprite2D"]
 position = Vector2(6, -24)
 scale = Vector2(0.101563, 0.101563)
+enabled = false
 color = Color(0.321727, 0.80146, 0.668336, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_1tavo")
