@@ -9,6 +9,8 @@ func _process(delta: float) -> void:
 			%BossCamera.make_current()
 			if !COMBAT_STARTED:
 				COMBAT_STARTED = true
+				%Background.stop()
+				%BossMusic.play()
 				%Boss.call("combat")
 		else:
 			%PlayerCamera.make_current()

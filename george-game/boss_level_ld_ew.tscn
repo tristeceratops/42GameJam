@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://5ahsur6kab"]
+[gd_scene load_steps=45 format=4 uid="uid://5ahsur6kab"]
 
 [ext_resource type="Texture2D" uid="uid://bwyi46cjn8qqu" path="res://art/tileset/big_set_1.png" id="1_3f3uq"]
 [ext_resource type="Script" path="res://boss_level_ld_ew.gd" id="1_frupl"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://tntlw4i2wicv" path="res://traps/saw/scene/saw.tscn" id="9_ns5v5"]
 [ext_resource type="PackedScene" uid="uid://tdbww7qbhgv8" path="res://recource/timer_canvas.tscn" id="11_vwfnm"]
 [ext_resource type="AudioStream" uid="uid://duv8svqd6iucd" path="res://sounds/03_racing_through_asteroids_intro.mp3" id="12_jr512"]
+[ext_resource type="AudioStream" uid="uid://br2ycj18os1du" path="res://sounds/06_battle_in_space_loop.mp3" id="13_6nxgu"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5dayq"]
 polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -414,8 +415,13 @@ shadow_enabled = true
 texture = SubResource("GradientTexture2D_bc71e")
 
 [node name="Background" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource("12_jr512")
 autoplay = true
+
+[node name="BossMusic" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("13_6nxgu")
 
 [connection signal="area_exited" from="BossCamera/BossCameraArea" to="Boss" method="_on_boss_camera_area_area_exited"]
 [connection signal="timeout" from="Boss/Timer" to="Boss" method="_on_timer_timeout"]
