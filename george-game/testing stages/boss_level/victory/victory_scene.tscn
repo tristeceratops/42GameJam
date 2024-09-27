@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcaqk8vgm3odr"]
+
+[ext_resource type="Script" path="res://testing stages/boss_level/victory/victory_scene.gd" id="1_u468v"]
+[ext_resource type="Texture2D" uid="uid://cv0ee5a8efimg" path="res://testing stages/boss_level/victory/victory_george.png" id="1_uhghq"]
+[ext_resource type="AudioStream" uid="uid://clxefcbxxt71e" path="res://sounds/level finished theme.mp3" id="3_x1cvq"]
+
+[sub_resource type="Theme" id="Theme_0wp43"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_u468v")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("1_uhghq")
+expand_mode = 2
+
+[node name="MenuButton" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_0wp43")
+theme_override_colors/font_color = Color(0.862745, 0.862745, 0.862745, 1)
+theme_override_font_sizes/font_size = 60
+text = "MENU"
+
+[node name="LevelFinishedTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_x1cvq")
+autoplay = true
+
+[connection signal="pressed" from="PanelContainer/MenuButton" to="." method="_on_menu_button_pressed"]
