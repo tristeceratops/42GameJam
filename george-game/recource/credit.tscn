@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Title : ???"
+
+[node name="Control" type="Control" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sound" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sound  :
+Seps : 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
+
+Game over : Adan Quiroz (adn_adn)
+
+ Background + boss song : leohpaz
+
+Jump : cabled_mess"
+
+[node name="Control2" type="Control" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprites" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sprites :"
