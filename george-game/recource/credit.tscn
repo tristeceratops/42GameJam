@@ -1,10 +1,13 @@
-[gd_scene format=3 uid="uid://dsvfi764d8dkb"]
+[gd_scene load_steps=2 format=3 uid="uid://dsvfi764d8dkb"]
+
+[ext_resource type="Script" path="res://recource/credit.gd" id="1_0i5ug"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_0i5ug")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -40,3 +43,13 @@ layout_mode = 2
 [node name="Sprites" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sprites : Foozle - traps sprites"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 321.0
+offset_right = 213.0
+offset_bottom = 356.0
+text = "BACK"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
