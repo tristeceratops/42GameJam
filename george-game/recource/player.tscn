@@ -235,7 +235,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14mdo"]
-size = Vector2(20, 39.9926)
+size = Vector2(16.4578, 38.972)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ke3x"]
 radius = 15.9823
@@ -258,10 +258,10 @@ metadata/_edit_group_ = true
 position = Vector2(0.5, -5.2)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_1mne1")
-animation = &"wall_slide"
+animation = &"stand"
 
 [node name="normal hitbox" type="CollisionShape2D" parent="."]
-position = Vector2(-3.63436, -2.20259)
+position = Vector2(0.146702, -2.64038)
 rotation = 0.0191986
 shape = SubResource("RectangleShape2D_14mdo")
 
