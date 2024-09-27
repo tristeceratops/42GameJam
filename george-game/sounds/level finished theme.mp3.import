@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clxefcbxxt71e"
+path="res://.godot/imported/level finished theme.mp3-c229be9d7e10ad4f053721a9c2d5ee68.mp3str"
+
+[deps]
+
+source_file="res://sounds/level finished theme.mp3"
+dest_files=["res://.godot/imported/level finished theme.mp3-c229be9d7e10ad4f053721a9c2d5ee68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
