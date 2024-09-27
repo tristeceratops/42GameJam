@@ -78,9 +78,7 @@ func _on_HurtArea_area_entered(area: Area2D) -> void:
 			print("Boss defeated")
 
 func _on_AnimatedSprite_animation_finished() -> void:
-	print("VICTORY")
 	print(get_node("Sprite2D/AnimatedSprite2D").animation)
 	if get_node("Sprite2D/AnimatedSprite2D").animation == "death":
-		print("VICTORY")
-		#queue_free()  # does not work
+		get_tree().change_scene_to_file("res://testing stages/boss_level/victory/victory_scene.tscn")
 		 # Call victory scene
