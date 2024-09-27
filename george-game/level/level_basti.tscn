@@ -214,7 +214,7 @@ offset = Vector2(0, -150)
 zoom = Vector2(1.5, 1.5)
 
 [node name="loading zone" parent="." instance=ExtResource("5_mqahy")]
-position = Vector2(2704, -1858)
+position = Vector2(2690, -1858)
 
 [node name="LavaArea2D" type="Area2D" parent="." groups=["traps"]]
 position = Vector2(1549, 78)
