@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dqrikso5ejkmn" path="res://traps/tesla_trap/scenes/lighting_trap.tscn" id="4_g5sch"]
 [ext_resource type="PackedScene" uid="uid://btymfyif16gfr" path="res://recource/platforn_right_left.tscn" id="5_n1u64"]
 [ext_resource type="PackedScene" uid="uid://bv0trqfxr167k" path="res://testing stages/boss_level/door/door.tscn" id="6_ouxns"]
-[ext_resource type="PackedScene" uid="uid://cratt5wfcovvp" path="res://recource/loading_zone.tscn" id="7_78bjy"]
+[ext_resource type="PackedScene" path="res://recource/loading_zone.tscn" id="7_78bjy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_miagc"]
 texture = ExtResource("1_v2vp1")

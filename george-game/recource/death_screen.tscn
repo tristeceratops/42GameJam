@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://drpy6d5c2sldl"]
+[gd_scene load_steps=7 format=3 uid="uid://q47qyk600alx"]
 
 [ext_resource type="Script" path="res://Script/death_screen.gd" id="1_b5chr"]
+[ext_resource type="Texture2D" uid="uid://bd1oooh0syp4j" path="res://art/Preview3.webp" id="2_4f4a0"]
+
+[sub_resource type="Theme" id="Theme_ai6to"]
+
+[sub_resource type="Theme" id="Theme_rc1na"]
+
+[sub_resource type="Gradient" id="Gradient_elgm6"]
+offsets = PackedFloat32Array(0.303571, 1)
+colors = PackedColorArray(0, 0.701961, 0, 0.392157, 1, 1, 1, 0.152941)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_elpa2"]
+gradient = SubResource("Gradient_elgm6")
+fill = 1
+fill_from = Vector2(0.521552, 0.512931)
+fill_to = Vector2(1, 1)
 
 [node name="DEATH SCREEN" type="Control"]
 layout_mode = 3
@@ -11,36 +26,49 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
 script = ExtResource("1_b5chr")
 
-[node name="Button" type="Button" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -460.5
-offset_top = -26.0
-offset_right = 460.5
-offset_bottom = 26.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_4f4a0")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = SubResource("Theme_ai6to")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 46
+text = "You have been
+blackholed !"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_rc1na")
+theme_override_font_sizes/font_size = 18
 text = "Back To Start"
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/Button"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -204.0
-offset_right = 57.0
-offset_bottom = -167.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = 14.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "YOU DIED!!!"
+texture = SubResource("GradientTexture2D_elpa2")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/Button" to="." method="_on_button_pressed"]

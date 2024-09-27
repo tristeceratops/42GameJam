@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://tdbww7qbhgv8" path="res://recource/timer_canvas.tscn" id="2_buxuv"]
 [ext_resource type="PackedScene" uid="uid://btymfyif16gfr" path="res://recource/platforn_right_left.tscn" id="3_sgaxt"]
 [ext_resource type="PackedScene" uid="uid://6as4jbekq0c3" path="res://recource/player.tscn" id="4_p1644"]
-[ext_resource type="PackedScene" uid="uid://cratt5wfcovvp" path="res://recource/loading_zone.tscn" id="5_mqahy"]
+[ext_resource type="PackedScene" path="res://recource/loading_zone.tscn" id="5_mqahy"]
 [ext_resource type="AudioStream" uid="uid://duv8svqd6iucd" path="res://sounds/03_racing_through_asteroids_intro.mp3" id="7_m2v5w"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_5dayq"]

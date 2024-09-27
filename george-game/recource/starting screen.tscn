@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm765s6e8cevk"]
+[gd_scene load_steps=5 format=3 uid="uid://dm765s6e8cevk"]
 
 [ext_resource type="Script" path="res://old stuff/scripts/last main/starting_screen.gd" id="1_mqnkd"]
+[ext_resource type="Texture2D" uid="uid://bd1oooh0syp4j" path="res://art/Preview3.webp" id="2_ompbh"]
 [ext_resource type="Texture2D" uid="uid://bhfjsnieaxeha" path="res://art/last main/Play_Button.webp" id="2_u8bec"]
+
+[sub_resource type="Theme" id="Theme_5e1el"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -11,6 +14,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mqnkd")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("2_ompbh")
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme = SubResource("Theme_5e1el")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.95158, 0.95158, 0.95158, 1)
+theme_override_font_sizes/font_size = 80
+text = "G. G. B. A."
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -26,18 +51,9 @@ offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button2" type="Button" parent="Button"]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 208.0
-offset_right = 430.0
-offset_bottom = 242.0
-text = "Credits"
-
 [node name="Sprite2D" type="Sprite2D" parent="Button"]
 position = Vector2(209, 42)
 scale = Vector2(0.500508, 0.353572)
 texture = ExtResource("2_u8bec")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button/Button2" to="." method="_on_button_2_pressed"]
