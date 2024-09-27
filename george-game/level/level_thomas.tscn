@@ -463,6 +463,8 @@ debug_color = Color(0.878411, 0.298254, 0.432637, 0.42)
 position = Vector2(183, -217)
 
 [node name="Camera2D" type="Camera2D" parent="player_node"]
+offset = Vector2(0, -150)
+zoom = Vector2(1.5, 1.5)
 
 [node name="TimerCanvas" parent="." instance=ExtResource("3_0jjn7")]
 

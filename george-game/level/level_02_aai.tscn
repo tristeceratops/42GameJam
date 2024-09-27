@@ -209,6 +209,8 @@ tile_set = SubResource("TileSet_do11d")
 [node name="player_node" parent="." instance=ExtResource("1_yugs6")]
 
 [node name="Camera2D" type="Camera2D" parent="player_node"]
+offset = Vector2(0, -150)
+zoom = Vector2(1.5, 1.5)
 
 [node name="LavaArea2D" type="Area2D" parent="." groups=["traps"]]
 position = Vector2(1549, 78)
