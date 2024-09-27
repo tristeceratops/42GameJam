@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://vvy5admst54y"]
+[gd_scene load_steps=11 format=4 uid="uid://vvy5admst54y"]
 
 [ext_resource type="Texture2D" uid="uid://bwyi46cjn8qqu" path="res://art/tileset/big_set_1.png" id="1_c4ijh"]
 [ext_resource type="PackedScene" uid="uid://6as4jbekq0c3" path="res://recource/player.tscn" id="2_vni52"]
 [ext_resource type="PackedScene" uid="uid://tdbww7qbhgv8" path="res://recource/timer_canvas.tscn" id="3_0jjn7"]
+[ext_resource type="PackedScene" uid="uid://cratt5wfcovvp" path="res://recource/loading_zone.tscn" id="4_pdick"]
+[ext_resource type="PackedScene" uid="uid://bv0trqfxr167k" path="res://testing stages/boss_level/door/door.tscn" id="5_yyih3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1xrb5"]
 texture = ExtResource("1_c4ijh")
@@ -462,3 +464,10 @@ position = Vector2(183, -217)
 [node name="Camera2D" type="Camera2D" parent="player_node"]
 
 [node name="TimerCanvas" parent="." instance=ExtResource("3_0jjn7")]
+
+[node name="Node2D" parent="." instance=ExtResource("5_yyih3")]
+position = Vector2(2064, -1568)
+
+[node name="loading zone" parent="." instance=ExtResource("4_pdick")]
+position = Vector2(2073, -1568)
+next_level = "res://level/level_02_aai.tscn"
