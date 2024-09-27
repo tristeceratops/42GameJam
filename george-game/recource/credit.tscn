@@ -1,10 +1,13 @@
-[gd_scene format=3]
+[gd_scene load_steps=2 format=3 uid="uid://yccmp8i5wxdl"]
+
+[ext_resource type="Script" path="res://Script/credit.gd" id="1_kkkos"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_kkkos")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -40,3 +43,20 @@ layout_mode = 2
 [node name="Sprites" type="Label" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Sprites :"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = 534.0
+offset_right = 310.0
+offset_bottom = 565.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "back"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

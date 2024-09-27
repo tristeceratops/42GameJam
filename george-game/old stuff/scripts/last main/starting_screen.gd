@@ -51,3 +51,7 @@ func random_level():
 			print("No scenes found in the folder!")
 	else:
 		print("Failed to open directory: " + scene_folder_path)
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://recource/credit.tscn")

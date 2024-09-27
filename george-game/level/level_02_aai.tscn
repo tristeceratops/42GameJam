@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://tdbww7qbhgv8" path="res://recource/timer_canvas.tscn" id="3_1om8b"]
 [ext_resource type="PackedScene" uid="uid://dqrikso5ejkmn" path="res://traps/tesla_trap/scenes/lighting_trap.tscn" id="4_cu4u7"]
 [ext_resource type="PackedScene" uid="uid://bv0trqfxr167k" path="res://testing stages/boss_level/door/door.tscn" id="5_kcnlg"]
-[ext_resource type="PackedScene" path="res://recource/loading_zone.tscn" id="6_udv20"]
+[ext_resource type="PackedScene" uid="uid://cratt5wfcovvp" path="res://recource/loading_zone.tscn" id="6_udv20"]
 [ext_resource type="AudioStream" uid="uid://duv8svqd6iucd" path="res://sounds/03_racing_through_asteroids_intro.mp3" id="7_a2wfh"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v6533"]
