@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=4 uid="uid://qpvegyg1sxgf"]
+[gd_scene load_steps=32 format=4 uid="uid://qpvegyg1sxgf"]
 
 [ext_resource type="Texture2D" uid="uid://bwyi46cjn8qqu" path="res://art/tileset/big_set_1.png" id="1_v2vp1"]
 [ext_resource type="PackedScene" uid="uid://tdbww7qbhgv8" path="res://recource/timer_canvas.tscn" id="2_1400l"]
 [ext_resource type="PackedScene" uid="uid://6as4jbekq0c3" path="res://recource/player.tscn" id="3_ew1i3"]
 [ext_resource type="PackedScene" uid="uid://dqrikso5ejkmn" path="res://traps/tesla_trap/scenes/lighting_trap.tscn" id="4_g5sch"]
 [ext_resource type="PackedScene" uid="uid://btymfyif16gfr" path="res://recource/platforn_right_left.tscn" id="5_n1u64"]
+[ext_resource type="PackedScene" uid="uid://bv0trqfxr167k" path="res://testing stages/boss_level/door/door.tscn" id="6_ouxns"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_miagc"]
 texture = ExtResource("1_v2vp1")
@@ -499,6 +500,12 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_oofue")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ncv37"]
+size = Vector2(431, 147)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uongr"]
+size = Vector2(31, 63)
+
 [node name="Level_Raja" type="Node2D"]
 
 [node name="Backimage" type="TileMapLayer" parent="."]
@@ -512,7 +519,7 @@ tile_set = SubResource("TileSet_lpg0q")
 [node name="TimerCanvas" parent="." instance=ExtResource("2_1400l")]
 
 [node name="player_node" parent="." instance=ExtResource("3_ew1i3")]
-position = Vector2(1768, 560)
+position = Vector2(1086, -20)
 JUMP_VELOCITY = -650.0
 
 [node name="Camera2D" type="Camera2D" parent="player_node"]
@@ -593,3 +600,24 @@ tile_set = SubResource("TileSet_j6q7x")
 visible = false
 tile_map_data = PackedByteArray("AAD9//7/AAAEAAMAAAD9////AAAEAAMAAAD9/wAAAAAEAAMAAAD9/wEAAAAEAAMAAAD+//7/AAAEAAMAAAD+////AAAEAAMAAAD+/wAAAAAEAAMAAAD+/wEAAAAEAAMAAAD///7/AAAEAAMAAAD/////AAAEAAMAAAD//wAAAAAEAAMAAAD//wEAAAAEAAMAAAAAAP7/AAAEAAMAAAAAAP//AAAEAAMAAAAAAAAAAAAEAAMAAAAAAAEAAAAEAAMAAAA=")
 tile_set = SubResource("TileSet_j6q7x")
+
+[node name="LavaArea2D" type="Area2D" parent="." groups=["traps"]]
+position = Vector2(1549, 78)
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LavaArea2D"]
+position = Vector2(-10.5, 43.5)
+shape = SubResource("RectangleShape2D_ncv37")
+debug_color = Color(0.878411, 0.298254, 0.432637, 0.42)
+
+[node name="Node2D" parent="." instance=ExtResource("6_ouxns")]
+position = Vector2(-392, 359)
+rotation = 3.14159
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+position = Vector2(36, -3.14722e-06)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(-22, 1.46631e-06)
+shape = SubResource("RectangleShape2D_uongr")
