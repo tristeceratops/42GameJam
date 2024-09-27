@@ -2,6 +2,8 @@ extends CanvasLayer
 
 @export var initial_time: int = 42  # Starting time for the countdown
 @onready var game_over = $Gameover
+@onready var background_sound = $Background
+@onready var countdown_timer = $TimerCanvas
 var time_to_die = 0
 var current_time: int = 0  # Tracks remaining time
 signal time_ran_out  # Signal emitted when time reaches zero
@@ -17,6 +19,7 @@ func _ready() -> void:
 
 	# Connect the Timer's timeout signal in Godot 4.x
 	$Countdown_timer.timeout.connect(_on_countdown_timeout)
+	#countdown_timer.rush.connect(_final_secs)
 
 # Function called each second
 func _on_countdown_timeout() -> void:
@@ -32,3 +35,7 @@ func _on_countdown_timeout() -> void:
 		$Countdown_timer.stop()  # Stop the timer
 		await get_tree().create_timer(2.5).timeout
 		get_tree().change_scene_to_file("res://recource/death_screen.tscn")
+
+
+func _final_secs() -> void:
+	background_sound.pitch_scale = 1.5
